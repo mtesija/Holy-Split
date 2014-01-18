@@ -42,17 +42,17 @@ namespace HolySplit
                         tiles[i, j].tileType = 1;
                 }
             }
-            player = new Player(new Vector2(400, 400));
+            player = new Player(new Vector2(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT * 3 / 4));
             blobs = new List<Blob>();
             newBlobs = new List<Blob>();
             bullets = new List<Bullet>();
             random = new Random();
 
-            blobs.Add(new Blob(new Vector2(100, 100), Color.Gray, 1));
-            for (int i = 0; i < 15; ++i)//TESTCODE
-            {
-                blobs.Add( new Blob(new Vector2(random.Next(0, HolySplitGame.SCREEN_WIDTH - 50), random.Next(0, HolySplitGame.SCREEN_HEIGHT - 50)), Color.Gray, 1));
-            }//TESTCODE
+            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 2, 50), Color.Gray, 1));
+            //for (int i = 0; i < 15; ++i)//TESTCODE
+            //{
+            //    blobs.Add( new Blob(new Vector2(random.Next(0, HolySplitGame.SCREEN_WIDTH - 50), random.Next(0, HolySplitGame.SCREEN_HEIGHT - 50)), Color.Gray, 1));
+            //}//TESTCODE
         }
 
         public string CalculateFinalScore()
@@ -64,7 +64,10 @@ namespace HolySplit
         {
             player.Update(gameTime, ref bullets);
             foreach (Blob b in blobs)
-                b.Update(gameTime, ref player, ref newBlobs);
+            {
+                b.Update(gameTime, ref player, ref random, ref newBlobs);
+                //player.Collide(b);
+            }
             foreach (Blob b in newBlobs)
                 blobs.Add(b);
             newBlobs.Clear();
