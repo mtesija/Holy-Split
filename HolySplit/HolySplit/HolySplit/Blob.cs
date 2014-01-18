@@ -146,27 +146,27 @@ namespace HolySplit
             if (splitTimer.CheckTimer())
             {
                 Kill(ref blobs);
-                splitTimer.resetTimer(Map.random.Next(8, 15));
+                splitTimer.resetTimer(Map.random.Next(8, 12));
             }
 
             if (positiveTimer.CheckTimer())
             {
                 this.positive = Map.random.Next(0, 2);
-                positiveTimer.resetTimer(Map.random.Next(4, 15));
+                positiveTimer.resetTimer(Map.random.Next(4, 6));
             }
 
-            this.velocity = player.location - this.location;
-
-            if (velocity.X != 0 && velocity.Y != 0)
-                this.velocity.Normalize();
-
-            if (color == RED)
+            if (color == GRAY)
+            {
+                this.velocity = player.location - this.location;
+            }
+            else if (color == RED)
             {
                 if (this.positive == 0)
                     this.direction = Map.random.Next(-45, -15);
                 else
                     this.direction = Map.random.Next(15, 45);
 
+                this.velocity = player.location - this.location;
                 rotateVec(this.velocity, this.direction);
             }
             else if (color == BLUE)
@@ -176,6 +176,7 @@ namespace HolySplit
                 else
                     this.direction = Map.random.Next(30, 60);
 
+                this.velocity = player.location - this.location;
                 rotateVec(this.velocity, this.direction);
             }
             else if (color == YELLOW)
@@ -185,19 +186,41 @@ namespace HolySplit
                 else
                     this.direction = Map.random.Next(45, 90);
 
+                this.velocity = player.location - this.location;
                 rotateVec(this.velocity, this.direction);
             }
             else if (color == PURPLE)
             {
+                if (directionTimer.CheckTimer())
+                {
+                    this.direction = Map.random.Next(-180, 180);
+                    directionTimer.resetTimer(Map.random.Next(12, 16));
+                }
 
+                this.velocity = new Vector2(1, 0);
+                rotateVec(this.velocity, this.direction);
             }
             else if (color == GREEN)
             {
+                if (directionTimer.CheckTimer())
+                {
+                    this.direction = Map.random.Next(-180, 180);
+                    directionTimer.resetTimer(Map.random.Next(4, 8));
+                }
 
+                this.velocity = new Vector2(1, 0);
+                rotateVec(this.velocity, this.direction);
             }
             else if (color == ORANGE)
             {
+                if (directionTimer.CheckTimer())
+                {
+                    this.direction = Map.random.Next(-180, 180);
+                    directionTimer.resetTimer(Map.random.Next(6, 11));
+                }
 
+                this.velocity = new Vector2(1, 0);
+                rotateVec(this.velocity, this.direction);
             }
             else if (color == REDORANGE)
             {
@@ -224,20 +247,39 @@ namespace HolySplit
 
             }
 
+            if (velocity.X != 0 && velocity.Y != 0)
+                this.velocity.Normalize();
+
             this.velocity *= speed;
 
             this.location.X += this.velocity.X;
             this.location.Y += this.velocity.Y;
 
             if (location.X < 0 + WALL_SIZE)
+            {
                 this.location.X = 0 + WALL_SIZE;
+                this.direction += 180;
+                directionTimer.resetTimer(6);
+            }
             else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE)
+            {
                 this.location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE;
+                this.direction += 180;
+                directionTimer.resetTimer(6);
+            }
 
             if (location.Y < 0 + WALL_SIZE)
+            {
                 this.location.Y = 0 + WALL_SIZE;
+                this.direction += 180;
+                directionTimer.resetTimer(6);
+            }
             else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE)
+            {
                 this.location.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE;
+                this.direction += 180;
+                directionTimer.resetTimer(6);
+            }
 
             this.hitbox.X = (int)this.location.X;
             this.hitbox.Y = (int)this.location.Y;
