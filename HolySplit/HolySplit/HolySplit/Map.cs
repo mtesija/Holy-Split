@@ -48,7 +48,11 @@ namespace HolySplit
             bullets = new List<Bullet>();
             random = new Random();
 
-            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, 1));
+            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT / 5), Color.Gray, .7f + (float)random.NextDouble() * .6f));
+            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 3, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, .7f + (float)random.NextDouble() * .6f));
+            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 2 / 3, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, .7f + (float)random.NextDouble() * .6f));
+            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 3 / 4, HolySplitGame.SCREEN_HEIGHT / 3), Color.Gray, .7f + (float)random.NextDouble() * .6f));
+            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 4, HolySplitGame.SCREEN_HEIGHT / 3), Color.Gray, .7f + (float)random.NextDouble() * .6f));
             //for (int i = 0; i < 15; ++i)//TESTCODE
             //{
             //    blobs.Add( new Blob(new Vector2(random.Next(0, HolySplitGame.SCREEN_WIDTH - 50), random.Next(0, HolySplitGame.SCREEN_HEIGHT - 50)), Color.Gray, 1));

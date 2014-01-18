@@ -37,7 +37,7 @@ namespace HolySplit
         public Vector2 velocity;
         public Vector2 location;
         public Color color;
-        public int speed;
+        public float speed;
         public bool destroyThis;
     }
 }
