@@ -37,6 +37,24 @@
       <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\tiles.xnb</Output>
       <Time>2014-01-17T21:39:40.2731516-05:00</Time>
     </Item>
+    <Item>
+      <Source>fonts\smallfont.spritefont</Source>
+      <Name>fonts\smallfont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\smallfont.xnb</Output>
+      <Time>2014-01-18T09:37:31.552467-05:00</Time>
+    </Item>
+    <Item>
+      <Source>fonts\largefont.spritefont</Source>
+      <Name>fonts\largefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\largefont.xnb</Output>
+      <Time>2014-01-18T09:37:48.488292-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

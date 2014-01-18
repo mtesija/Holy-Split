@@ -14,6 +14,12 @@ namespace HolySplit
 {
     class Bullet : PhysicsObject
     {
+        public Bullet(Vector2 location)
+        {
+            speed = BULLET_SPEED;
+            destroyThis = false;
+        }
+
         public void Update(GameTime gameTime)
         {
         }

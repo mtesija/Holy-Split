@@ -24,7 +24,7 @@ namespace HolySplit
 
         public Tile[,] tiles;
         public Player player;
-        public List<Blob> blobs;
+        public List<Blob> blobs, newBlobs;
         public List<Bullet> bullets;
         public Random random;
 
@@ -43,17 +43,31 @@ namespace HolySplit
             }
             player = new Player(new Vector2(400, 400));
             blobs = new List<Blob>();
+            newBlobs = new List<Blob>();
             bullets = new List<Bullet>();
             random = new Random();
 
             blobs.Add(new Blob(new Vector2(100, 100), Color.Gray, 1));
+            for (int i = 0; i < 100; ++i)//TESTCODE
+            {
+                blobs.Add( new Blob(new Vector2(10*i, 10*i), Color.Gray, 1));
+            }//TESTCODE
         }
 
         public void Update(GameTime gameTime)
         {
             player.Update(gameTime, ref bullets);
             foreach (Blob b in blobs)
-                b.Update(gameTime, ref player, ref random);
+                b.Update(gameTime, ref player, ref random, ref newBlobs);
+            foreach (Blob b in newBlobs)
+                blobs.Add(b);
+            newBlobs.Clear();
+            for (int i = 0; i < blobs.Count; ++i)
+                if (blobs[i].destroyThis)
+                {
+                    blobs.RemoveAt(i);
+                    --i;
+                }
         }
     }
 }

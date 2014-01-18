@@ -18,7 +18,7 @@ namespace HolySplit
         public Player(Vector2 location)
         {
             this.location = location;
-            speed = 3;
+            speed = PLAYER_SPEED;
             velocity = Vector2.Zero;
             hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
         }

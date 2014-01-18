@@ -40,7 +40,7 @@ namespace HolySplit
 
             map = new Map();
             view = new View();
-            gameState = GameState.MainMenu;
+            gameState = GameState.Game;
         }
 
         protected override void LoadContent()

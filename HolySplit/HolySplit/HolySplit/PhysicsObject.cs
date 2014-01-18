@@ -29,11 +29,14 @@ namespace HolySplit
         public Color GRAY = Color.Gray;
 
         public const int CHARACTER_SIZE = 35;
+        public const int PLAYER_SPEED = 3;
+        public const int BULLET_SPEED = 6;
 
         public Rectangle hitbox;
         public Vector2 velocity;
         public Vector2 location;
         public Color color;
         public int speed;
+        public bool destroyThis;
     }
 }

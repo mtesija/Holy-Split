@@ -16,6 +16,7 @@ namespace HolySplit
     {
         int direction = 0;
         int directionMod = 0;
+        Timer splitTimer;
 
         public Blob(Vector2 location, Color color, int speed)
         {
@@ -24,6 +25,8 @@ namespace HolySplit
             this.hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
             this.velocity = Vector2.Zero;
             this.speed = speed;
+            splitTimer = new Timer(5.0f);
+            destroyThis = false;
         }
 
         public void Split(ref List<Blob> blobs)
@@ -88,7 +91,7 @@ namespace HolySplit
                 blobs.Add(new Blob(this.location, YELLOW, this.speed));
             }
 
-            blobs.Remove(this);
+            destroyThis = true;
         }
 
         private void rotateVec(Vector2 vec, double deg)
@@ -101,9 +104,13 @@ namespace HolySplit
             return;
         }
 
-        public void Update(GameTime gameTime, ref Player player, ref Random random)
+        public void Update(GameTime gameTime, ref Player player, ref Random random, ref List<Blob> blobs)
         {
             //SPLIT HERE TIMER BASED
+            if (splitTimer.CheckTimer())
+            {
+                Kill(ref blobs);
+            }
 
             this.velocity = player.location - this.location;
 
