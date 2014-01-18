@@ -55,6 +55,7 @@ namespace HolySplit
                 this.Exit();
 
             // TODO: Add your update logic here
+            map.Update(gameTime);
 
             base.Update(gameTime);
         }

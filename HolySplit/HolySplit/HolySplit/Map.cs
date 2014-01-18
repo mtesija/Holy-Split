@@ -39,13 +39,14 @@ namespace HolySplit
                         tiles[i, j].tileType = 1;
                 }
             }
-            player = new Player();
+            player = new Player(new Vector2(400, 400));
             blobs = new List<Blob>();
             //TODO: Add first grey blob
         }
 
         public void Update(GameTime gameTime)
         {
+            player.Update(gameTime);
         }
     }
 }

@@ -44,6 +44,8 @@ namespace HolySplit
                     spriteBatch.Draw(tiles, new Rectangle(i * DESTINATION_SIZE, j * DESTINATION_SIZE, DESTINATION_SIZE, DESTINATION_SIZE), sourceRect, Color.White);
                 }
 
+            spriteBatch.Draw(player, map.player.hitbox, Color.Red);
+
             spriteBatch.End();
         }
     }
