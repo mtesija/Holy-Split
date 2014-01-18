@@ -57,13 +57,14 @@ namespace HolySplit
             foreach (Bullet b in map.bullets)
                 spriteBatch.Draw(bullet, b.hitbox, b.color);
 
+            spriteBatch.Draw(bullet, map.player.aim, map.player.color);
             spriteBatch.Draw(player, map.player.hitbox, map.player.color);
 
-            spriteBatch.Draw(gun, gunLocation, Color.Yellow);
+            spriteBatch.Draw(gun, gunLocation, map.player.RED);
             gunLocation.X += GUN_SIZE;
-            spriteBatch.Draw(gun, gunLocation, Color.Blue);
+            spriteBatch.Draw(gun, gunLocation, map.player.YELLOW);
             gunLocation.X += GUN_SIZE;
-            spriteBatch.Draw(gun, gunLocation, Color.Red);
+            spriteBatch.Draw(gun, gunLocation, map.player.BLUE);
             gunLocation.X -= (GUN_SIZE * 2);
 
             selectLocation = new Rectangle(gunLocation.X + (map.player.selectedWeapon * GUN_SIZE), gunLocation.Y, GUN_SIZE, GUN_SIZE);

@@ -15,6 +15,8 @@ namespace HolySplit
     class Player : PhysicsObject
     {
         public int selectedWeapon;
+        public MouseState previousMouse;
+        public Vector2 aim;
 
         public Player(Vector2 location)
         {
@@ -23,8 +25,10 @@ namespace HolySplit
             velocity = Vector2.Zero;
             hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
             selectedWeapon = 0;
-            color = YELLOW;
+            color = RED;
             destroyThis = false;
+            previousMouse = Mouse.GetState();
+            aim = new Vector2(0, 1);
         }
 
         public void Collide(Blob b)
@@ -57,15 +61,39 @@ namespace HolySplit
             if (currentKeyboard.IsKeyDown(Keys.D1))
             {
                 selectedWeapon = 0;
+                color = RED;
             }
             if (currentKeyboard.IsKeyDown(Keys.D2))
             {
                 selectedWeapon = 1;
+                color = YELLOW;
             }
             if (currentKeyboard.IsKeyDown(Keys.D3))
             {
                 selectedWeapon = 2;
+                color = BLUE;
             }
+
+            //Aiming
+            MouseState mouse = new MouseState();
+            mouse = Mouse.GetState();
+            Vector2 mouseDelta = new Vector2(mouse.X - (HolySplitGame.SCREEN_WIDTH / 2), mouse.Y - (HolySplitGame.SCREEN_HEIGHT / 2));
+            if (mouseDelta.Length() > 20)
+            {
+                    mouseDelta.Normalize();
+                    mouseDelta *= 20;
+                    Mouse.SetPosition((int)mouseDelta.X + (HolySplitGame.SCREEN_WIDTH / 2), (int)mouseDelta.Y + (HolySplitGame.SCREEN_HEIGHT / 2));
+            }
+            mouseDelta.Normalize();
+            if (mouseDelta.Length() == 1.0f)
+                aim = mouseDelta;
+            Mouse.SetPosition(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT / 2);
+
+            //Check for mouse click to shoot balls
+            if (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
+            {
+            }
+            previousMouse = mouse;
 
             if(velocity.X != 0 || velocity.Y != 0)
                 velocity.Normalize();
