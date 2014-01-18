@@ -29,6 +29,7 @@ namespace HolySplit
         public Color GRAY = Color.Gray;
 
         public const int CHARACTER_SIZE = 35;
+        public const int WALL_SIZE = 35;
         public const int PLAYER_SPEED = 3;
         public const int BULLET_SPEED = 6;
 
