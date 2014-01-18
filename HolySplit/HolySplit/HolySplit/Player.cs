@@ -61,6 +61,15 @@ namespace HolySplit
             location.X += velocity.X;
             location.Y += velocity.Y;
 
+            if (location.X < 0)
+                location.X = 0;
+            else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE)
+                location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE;
+            if (location.Y < 0)
+                location.Y = 0;
+            else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE)
+                location.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE;
+
             hitbox.X = (int)location.X;
             hitbox.Y = (int)location.Y;
         }

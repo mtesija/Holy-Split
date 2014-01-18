@@ -29,6 +29,31 @@ namespace HolySplit
             destroyThis = false;
         }
 
+        public void Collide(Blob b)
+        {
+            if (b.hitbox.Intersects(hitbox))
+            {
+                Vector2 difference = b.location + this.location;
+                if(difference.X != 0 && difference.Y != 0)
+                    difference.Normalize();
+
+                this.location.X += difference.X;
+                this.location.Y += difference.Y;
+
+                if (location.X < 0)
+                    location.X = 0;
+                else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE)
+                    location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE;
+                if (location.Y < 0)
+                    location.Y = 0;
+                else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE)
+                    location.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE;
+
+                hitbox.X = (int)location.X;
+                hitbox.Y = (int)location.Y;
+            }
+        }
+
         public void Split(ref List<Blob> blobs)
         {
             blobs.Add(new Blob(this.location, this.color, this.speed));
@@ -178,6 +203,15 @@ namespace HolySplit
 
             this.location.X += this.velocity.X;
             this.location.Y += this.velocity.Y;
+
+            if (location.X < 0)
+                location.X = 0;
+            else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE)
+                location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE;
+            if (location.Y < 0)
+                location.Y = 0;
+            else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE)
+                location.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE;
 
             this.hitbox.X = (int)this.location.X;
             this.hitbox.Y = (int)this.location.Y;

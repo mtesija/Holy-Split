@@ -13,8 +13,8 @@ namespace HolySplit
 {
     public class HolySplitGame : Microsoft.Xna.Framework.Game
     {
-        const int SCREEN_WIDTH = 700;
-        const int SCREEN_HEIGHT = 700;
+        public const int SCREEN_WIDTH = 700;
+        public const int SCREEN_HEIGHT = 700;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;

@@ -48,9 +48,9 @@ namespace HolySplit
             random = new Random();
 
             blobs.Add(new Blob(new Vector2(100, 100), Color.Gray, 1));
-            for (int i = 0; i < 100; ++i)//TESTCODE
+            for (int i = 0; i < 15; ++i)//TESTCODE
             {
-                blobs.Add( new Blob(new Vector2(10*i, 10*i), Color.Gray, 1));
+                blobs.Add( new Blob(new Vector2(random.Next(0, HolySplitGame.SCREEN_WIDTH - 50), random.Next(0, HolySplitGame.SCREEN_HEIGHT - 50)), Color.Gray, 1));
             }//TESTCODE
         }
 
@@ -67,6 +67,11 @@ namespace HolySplit
                 {
                     blobs.RemoveAt(i);
                     --i;
+                }
+            for(int i = blobs.Count - 1; i >= 0; --i)
+                for (int j = 0; j < i; ++j)
+                {
+                    blobs[i].Collide(blobs[j]);
                 }
         }
     }
