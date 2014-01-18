@@ -27,6 +27,7 @@ namespace HolySplit
         public List<Blob> blobs, newBlobs;
         public List<Bullet> bullets;
         public static Random random;
+        public int score;
 
         public Map()
         {
@@ -52,6 +53,11 @@ namespace HolySplit
             {
                 blobs.Add( new Blob(new Vector2(random.Next(0, HolySplitGame.SCREEN_WIDTH - 50), random.Next(0, HolySplitGame.SCREEN_HEIGHT - 50)), Color.Gray, 1));
             }//TESTCODE
+        }
+
+        public string CalculateFinalScore()
+        {
+            return "";
         }
 
         public void Update(GameTime gameTime)

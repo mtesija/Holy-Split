@@ -22,6 +22,13 @@ namespace HolySplit
             velocity = Vector2.Zero;
             hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
             color = YELLOW;
+            destroyThis = false;
+        }
+
+        public void Collide(Blob b)
+        {
+            if (hitbox.Intersects(b.hitbox))
+                destroyThis = true;
         }
 
         public void Update(GameTime gameTime, ref List<Bullet> bullets)

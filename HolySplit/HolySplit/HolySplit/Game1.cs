@@ -22,6 +22,7 @@ namespace HolySplit
         const string CONTINUE = "Press SPACE to continue";
         const string HIGH_SCORE = "HIGH SCORES:";
         string scores;
+
         SpriteFont smallFont;
         SpriteFont largeFont;
 
@@ -69,6 +70,8 @@ namespace HolySplit
             else if (gameState == GameState.Game)
             {
                 map.Update(gameTime);
+                if (map.player.destroyThis)
+                    gameState = GameState.ScoreScreen;
             }
             else if (gameState == GameState.ScoreScreen)
             {
