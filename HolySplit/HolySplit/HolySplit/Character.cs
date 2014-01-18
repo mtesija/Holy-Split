@@ -14,9 +14,13 @@ namespace HolySplit
 {
     class Character
     {
+        public const int CHARACTER_SIZE = 20;
+
         public Rectangle hitbox;
         public Vector2 velocity;
         public Vector2 location;
         public Color color;
+        public int speed;
+
     }
 }

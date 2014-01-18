@@ -4,3 +4,7 @@ C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\obj\x86\Debug\H
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\obj\x86\Debug\HolySplit.exe
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\obj\x86\Debug\HolySplit.pdb
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\blob.xnb
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\bullet.xnb
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\player.xnb
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\tiles.xnb

@@ -22,6 +22,15 @@ namespace HolySplit
         Color ORANGE = Color.Orange;
         Color GRAY = Color.Gray;
 
+        Blob(Vector2 location, Color color, int speed)
+        {
+            this.location = location;
+            this.color = color;
+            this.hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
+            this.velocity = Vector2.Zero;
+            this.speed = speed;
+        }
+
         void Split(ref List<Blob> blobs, ref Random random)
         {
             random.Next(7);

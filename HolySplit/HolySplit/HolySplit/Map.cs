@@ -12,6 +12,11 @@ using Microsoft.Xna.Framework.Media;
 
 namespace HolySplit
 {
+    struct Tile
+    {
+
+    }
+
     class Map
     {
     }
