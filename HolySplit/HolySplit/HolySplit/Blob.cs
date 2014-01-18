@@ -29,7 +29,7 @@ namespace HolySplit
             this.speed = speed;
             splitTimer = new Timer(Map.random.Next(8, 12));
             directionTimer = new Timer(.1f);
-            positiveTimer = new Timer(Map.random.Next(4, 6));
+            positiveTimer = new Timer(.1f);
             destroyThis = false;
         }
 
