@@ -31,47 +31,42 @@ namespace HolySplit
             this.speed = speed;
         }
 
-        void Split(ref List<Blob> blobs, ref Random random)
+        void Split(ref List<Blob> blobs)
+        {
+            blobs.Add(new Blob(this.location, this.color, this.speed));
+        }
+
+        void Kill(ref List<Blob> blobs)
         {
             if (color == GRAY)
             {
-
-            }
-            else if (color == RED)
-            {
-
-            }
-            else if (color == BLUE)
-            {
-
-            }
-            else if (color == YELLOW)
-            {
-
+                blobs.Add(new Blob(this.location, PURPLE, this.speed));
+                blobs.Add(new Blob(this.location, GREEN, this.speed));
+                blobs.Add(new Blob(this.location, ORANGE, this.speed));
             }
             else if (color == PURPLE)
             {
-
+                blobs.Add(new Blob(this.location, RED, this.speed));
+                blobs.Add(new Blob(this.location, BLUE, this.speed));
             }
             else if (color == GREEN)
             {
-
+                blobs.Add(new Blob(this.location, BLUE, this.speed));
+                blobs.Add(new Blob(this.location, YELLOW, this.speed));
             }
-            else if (color == YELLOW)
+            else if (color == ORANGE)
             {
-
+                blobs.Add(new Blob(this.location, YELLOW, this.speed));
+                blobs.Add(new Blob(this.location, RED, this.speed));
             }
 
-
-
-
-            //DELETE THIS
-
-
+            blobs.Remove(this);
         }
 
-        void Update(GameTime gameTime, ref Player player)
+        public void Update(GameTime gameTime, ref Player player)
         {
+
+
             if (color == GRAY)
             {
                 this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);

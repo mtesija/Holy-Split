@@ -1,1 +1,2 @@
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplitContent\obj\x86\Debug\HolySplitContent.contentprojResolveAssemblyReference.cache
+C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplitContent\obj\x86\Debug\ResolveAssemblyReference.cache
