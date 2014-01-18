@@ -14,8 +14,9 @@ namespace HolySplit
 {
     class Character
     {
-        Rectangle hitbox;
-        Vector2 velocity;
-        Color color;
+        public Rectangle hitbox;
+        public Vector2 velocity;
+        public Vector2 location;
+        public Color color;
     }
 }

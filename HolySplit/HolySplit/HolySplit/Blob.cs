@@ -14,9 +14,34 @@ namespace HolySplit
 {
     class Blob : Character
     {
-        void Update(GameTime gameTime)
-        {
+        const Color BLUE = Color.Blue;
+        const Color YELLOW = Color.Yellow;
+        const Color RED = Color.Red;
+        const Color GREEN = Color.Green;
+        const Color PURPLE = Color.Purple;
+        const Color ORANGE = Color.Orange;
+        const Color GRAY = Color.Gray;
 
+        void Split(List<Blob> blobs, ref Random random)
+        {
+            random.Next(7);
+        }
+
+        void Update(GameTime gameTime, Player player)
+        {
+            if (color == RED)
+            {
+                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+            }
+            else if (color == BLUE)
+            {
+            }
+
+            location.X += velocity.X;
+            location.Y += velocity.Y;
+
+            hitbox.X = (int)location.X;
+            hitbox.Y = (int)location.Y;
         }
     }
 }
