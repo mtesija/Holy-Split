@@ -14,20 +14,20 @@ namespace HolySplit
 {
     class Blob : Character
     {
-        const Color BLUE = Color.Blue;
-        const Color YELLOW = Color.Yellow;
-        const Color RED = Color.Red;
-        const Color GREEN = Color.Green;
-        const Color PURPLE = Color.Purple;
-        const Color ORANGE = Color.Orange;
-        const Color GRAY = Color.Gray;
+        Color BLUE = Color.Blue;
+        Color YELLOW = Color.Yellow;
+        Color RED = Color.Red;
+        Color GREEN = Color.Green;
+        Color PURPLE = Color.Purple;
+        Color ORANGE = Color.Orange;
+        Color GRAY = Color.Gray;
 
-        void Split(List<Blob> blobs, ref Random random)
+        void Split(ref List<Blob> blobs, ref Random random)
         {
             random.Next(7);
         }
 
-        void Update(GameTime gameTime, Player player)
+        void Update(GameTime gameTime, ref Player player)
         {
             if (color == RED)
             {
