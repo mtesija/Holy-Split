@@ -28,6 +28,7 @@ namespace HolySplit
 
         Map map;
         View view;
+        GameState gameState;
 
         public HolySplitGame()
         {
@@ -39,6 +40,7 @@ namespace HolySplit
 
             map = new Map();
             view = new View();
+            gameState = GameState.MainMenu;
         }
 
         protected override void LoadContent()
@@ -50,21 +52,34 @@ namespace HolySplit
 
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
-            // TODO: Add your update logic here
-            map.Update(gameTime);
+            if (gameState == GameState.MainMenu)
+            {
+            }
+            else if (gameState == GameState.Game)
+            {
+                map.Update(gameTime);
+            }
+            else if (gameState == GameState.ScoreScreen)
+            {
+            }
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Orange);
 
-            view.Draw(spriteBatch, map);
+            if (gameState == GameState.MainMenu)
+            {
+            }
+            else if (gameState == GameState.Game)
+            {
+                view.Draw(spriteBatch, map);
+            }
+            else if (gameState == GameState.ScoreScreen)
+            {
+            }
             
             base.Draw(gameTime);
         }
