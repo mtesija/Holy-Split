@@ -23,7 +23,7 @@ namespace HolySplit
             hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, ref List<Bullet> bullets)
         {
             KeyboardState currentKeyboard = Keyboard.GetState();
 

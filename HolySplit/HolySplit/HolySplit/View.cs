@@ -47,6 +47,9 @@ namespace HolySplit
             foreach (Blob b in map.blobs)
                 spriteBatch.Draw(blob, b.hitbox, b.color);
 
+            foreach (Bullet b in map.bullets)
+                spriteBatch.Draw(bullet, b.hitbox, b.color);
+
             spriteBatch.Draw(player, map.player.hitbox, Color.Red);
 
             spriteBatch.End();

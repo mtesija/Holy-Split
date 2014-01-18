@@ -25,6 +25,8 @@ namespace HolySplit
         public Tile[,] tiles;
         public Player player;
         public List<Blob> blobs;
+        public List<Bullet> bullets;
+        public Random random;
 
         public Map()
         {
@@ -41,6 +43,8 @@ namespace HolySplit
             }
             player = new Player(new Vector2(400, 400));
             blobs = new List<Blob>();
+            bullets = new List<Bullet>();
+            random = new Random();
 
             blobs.Add(new Blob(new Vector2(100, 100), Color.Gray, 1));
         }
