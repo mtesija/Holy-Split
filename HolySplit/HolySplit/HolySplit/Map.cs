@@ -51,7 +51,9 @@ namespace HolySplit
 
         public void Update(GameTime gameTime)
         {
-            player.Update(gameTime);
+            player.Update(gameTime, ref bullets);
+            foreach (Blob b in blobs)
+                b.Update(gameTime, ref player, ref random);
         }
     }
 }
