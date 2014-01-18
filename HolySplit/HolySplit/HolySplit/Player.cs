@@ -21,6 +21,7 @@ namespace HolySplit
             speed = PLAYER_SPEED;
             velocity = Vector2.Zero;
             hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
+            color = YELLOW;
         }
 
         public void Update(GameTime gameTime, ref List<Bullet> bullets)

@@ -50,7 +50,7 @@ namespace HolySplit
             foreach (Bullet b in map.bullets)
                 spriteBatch.Draw(bullet, b.hitbox, b.color);
 
-            spriteBatch.Draw(player, map.player.hitbox, Color.Red);
+            spriteBatch.Draw(player, map.player.hitbox, map.player.color);
 
             spriteBatch.End();
         }

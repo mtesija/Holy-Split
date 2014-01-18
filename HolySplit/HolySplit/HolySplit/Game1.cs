@@ -16,6 +16,11 @@ namespace HolySplit
         public const int SCREEN_WIDTH = 700;
         public const int SCREEN_HEIGHT = 700;
 
+        const string GAME_TITLE = "Holy Split!";
+        const string HOW_TO_PLAY = "WASD - movement\nMouse - aim\nLeft Click - shoot\n1,2,3 or scroll wheel - switch weapon";
+        const string HIGH_SCORE = "HIGH SCORES:";
+        string scores;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
