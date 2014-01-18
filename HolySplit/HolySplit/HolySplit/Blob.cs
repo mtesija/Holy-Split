@@ -38,7 +38,7 @@ namespace HolySplit
             if (b.hitbox.Intersects(hitbox))
             {
                 Vector2 difference = b.location - this.location;
-                if (difference.X != 0 && difference.Y != 0)
+                if (difference.X != 0 || difference.Y != 0)
                 {
                     difference.Normalize();
                 }

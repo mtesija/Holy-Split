@@ -62,7 +62,7 @@ namespace HolySplit
             {
             }
 
-            if(velocity.X != 0 && velocity.Y != 0)
+            if(velocity.X != 0 || velocity.Y != 0)
                 velocity.Normalize();
             velocity *= speed;
 
