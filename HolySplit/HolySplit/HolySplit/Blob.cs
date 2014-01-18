@@ -15,8 +15,10 @@ namespace HolySplit
     class Blob : PhysicsObject
     {
         int direction = 0;
-        int directionMod = 0;
         Timer splitTimer;
+        Timer directionTimer;
+        Timer positiveTimer;
+        int positive = 0;
 
         public Blob(Vector2 location, Color color, int speed)
         {
@@ -25,7 +27,9 @@ namespace HolySplit
             this.hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
             this.velocity = Vector2.Zero;
             this.speed = speed;
-            splitTimer = new Timer(5.0f);
+            splitTimer = new Timer(Map.random.Next(8, 12));
+            directionTimer = new Timer(Map.random.Next(3, 5));
+            positiveTimer = new Timer(Map.random.Next(4, 6));
             destroyThis = false;
         }
 
@@ -33,9 +37,13 @@ namespace HolySplit
         {
             if (b.hitbox.Intersects(hitbox))
             {
-                Vector2 difference = b.location + this.location;
-                if(difference.X != 0 && difference.Y != 0)
+                Vector2 difference = b.location - this.location;
+                if (difference.X != 0 && difference.Y != 0)
+                {
                     difference.Normalize();
+                }
+
+                difference *= -1;
 
                 this.location.X += difference.X;
                 this.location.Y += difference.Y;
@@ -44,6 +52,7 @@ namespace HolySplit
                     location.X = 0 + WALL_SIZE;
                 else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE)
                     location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE;
+
                 if (location.Y < 0 + WALL_SIZE)
                     location.Y = 0 + WALL_SIZE;
                 else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE)
@@ -128,93 +137,107 @@ namespace HolySplit
             float cos = (float)Math.Cos(rad);
             float sin = (float)Math.Sin(rad);
             Matrix rotation = new Matrix(cos, sin, 0, 0, -sin, cos, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-            Vector2.Transform(vec, rotation);
+            this.velocity = Vector2.Transform(vec, rotation);
             return;
         }
 
-        public void Update(GameTime gameTime, ref Player player, ref Random random, ref List<Blob> blobs)
+        public void Update(GameTime gameTime, ref Player player, ref List<Blob> blobs)
         {
-            //SPLIT HERE TIMER BASED
             if (splitTimer.CheckTimer())
             {
                 Kill(ref blobs);
+                splitTimer.resetTimer(Map.random.Next(8, 15));
+            }
+
+            if (positiveTimer.CheckTimer())
+            {
+                this.positive = Map.random.Next(0, 2);
+                positiveTimer.resetTimer(Map.random.Next(4, 15));
             }
 
             this.velocity = player.location - this.location;
 
-            //MAKE ALL THESE RANDOM NUMBER REFRESH TIMER BASED
-            this.directionMod = random.Next(-5, 5);
+            if (velocity.X != 0 && velocity.Y != 0)
+                this.velocity.Normalize();
 
             if (color == RED)
             {
-                rotateVec(this.velocity, 70 + this.directionMod);
+                if (this.positive == 0)
+                    this.direction = Map.random.Next(-45, -15);
+                else
+                    this.direction = Map.random.Next(15, 45);
+
+                rotateVec(this.velocity, this.direction);
             }
             else if (color == BLUE)
             {
-                rotateVec(this.velocity, -15 + this.directionMod);
+                if (this.positive == 0)
+                    this.direction = Map.random.Next(-60, -30);
+                else
+                    this.direction = Map.random.Next(30, 60);
+
+                rotateVec(this.velocity, this.direction);
             }
             else if (color == YELLOW)
             {
-                rotateVec(this.velocity, 40 + this.directionMod);
+                if (this.positive == 0)
+                    this.direction = Map.random.Next(-90, -45);
+                else
+                    this.direction = Map.random.Next(45, 90);
+
+                rotateVec(this.velocity, this.direction);
             }
             else if (color == PURPLE)
             {
-                rotateVec(this.velocity, -40 + this.directionMod);
+
             }
             else if (color == GREEN)
             {
-                rotateVec(this.velocity, -70 + this.directionMod);
+
             }
             else if (color == ORANGE)
             {
-                rotateVec(this.velocity, 15 + this.directionMod);
+
             }
             else if (color == REDORANGE)
             {
-                this.direction = random.Next(0, 30);
-                rotateVec(this.velocity, this.direction);
+
             }
             else if (color == REDPURPLE)
             {
-                this.direction = random.Next(60, 90);
-                rotateVec(this.velocity, this.direction);
+
             }
             else if (color == BLUEGREEN)
             {
-                this.direction = random.Next(30, 60);
-                rotateVec(this.velocity, this.direction);
+
             }
             else if (color == BLUEPURPLE)
             {
-                this.direction = random.Next(-30, 0);
-                rotateVec(this.velocity, this.direction);
+
             }
             else if (color == YELLOWGREEN)
             {
-                this.direction = random.Next(-60, -30);
-                rotateVec(this.velocity, this.direction);
+
             }
             else if (color == YELLOWORANGE)
             {
-                this.direction = random.Next(-90, -60);
-                rotateVec(this.velocity, this.direction);
+
             }
 
-            if (velocity.X != 0 && velocity.Y != 0)
-                this.velocity.Normalize();
             this.velocity *= speed;
 
             this.location.X += this.velocity.X;
             this.location.Y += this.velocity.Y;
 
             if (location.X < 0 + WALL_SIZE)
-                location.X = 0 + WALL_SIZE;
+                this.location.X = 0 + WALL_SIZE;
             else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE)
-                location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE;
+                this.location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE;
+
             if (location.Y < 0 + WALL_SIZE)
-                location.Y = 0 + WALL_SIZE;
+                this.location.Y = 0 + WALL_SIZE;
             else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE)
-                location.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE;
+                this.location.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE;
 
             this.hitbox.X = (int)this.location.X;
             this.hitbox.Y = (int)this.location.Y;

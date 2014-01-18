@@ -26,7 +26,7 @@ namespace HolySplit
         public Player player;
         public List<Blob> blobs, newBlobs;
         public List<Bullet> bullets;
-        public Random random;
+        public static Random random;
 
         public Map()
         {
@@ -58,7 +58,7 @@ namespace HolySplit
         {
             player.Update(gameTime, ref bullets);
             foreach (Blob b in blobs)
-                b.Update(gameTime, ref player, ref random, ref newBlobs);
+                b.Update(gameTime, ref player, ref newBlobs);
             foreach (Blob b in newBlobs)
                 blobs.Add(b);
             newBlobs.Clear();
