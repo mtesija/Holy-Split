@@ -35,8 +35,6 @@ namespace HolySplit
 
         public void Draw(SpriteBatch spriteBatch, Map map)
         {
-            spriteBatch.Begin();
-
             for(int i = 0; i < Map.MAP_WIDTH; ++i)
                 for(int j = 0; j < Map.MAP_HEIGHT; ++j)
                 {
@@ -51,8 +49,6 @@ namespace HolySplit
                 spriteBatch.Draw(bullet, b.hitbox, b.color);
 
             spriteBatch.Draw(player, map.player.hitbox, map.player.color);
-
-            spriteBatch.End();
         }
     }
 }

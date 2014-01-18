@@ -17,9 +17,13 @@ namespace HolySplit
         public const int SCREEN_HEIGHT = 700;
 
         const string GAME_TITLE = "Holy Split!";
-        const string HOW_TO_PLAY = "WASD - movement\nMouse - aim\nLeft Click - shoot\n1,2,3 or scroll wheel - switch weapon";
+        const string CONTROLS = "WASD or Arrow Keys - Movement\nMouse - Aim\nLeft Click - Shoot\n1,2,3 or Scroll Wheel - Switch Weapon";
+        const string HOW_TO_PLAY = "    You are equipped with the finest Ultratech(tm) Laser with three stellar blaster settings.\nThe evil Queen Blobulon is invading your planet with his ugly minions.\nHer minions separate when shot unless you match your blaster color setting to the color of the blob.\nShooting a blob with the wrong color setting will cause them to seperate further (note there are more blob colors than blaster settings so you will have to split them).\nYour score increases based on how long you survive and how many blobs you kill so it will be beneficial to shoot some with the wrong color to prolong the game!";
+        const string CONTINUE = "Press SPACE to continue";
         const string HIGH_SCORE = "HIGH SCORES:";
         string scores;
+        SpriteFont smallFont;
+        SpriteFont largeFont;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -45,7 +49,7 @@ namespace HolySplit
 
             map = new Map();
             view = new View();
-            gameState = GameState.Game;
+            gameState = GameState.MainMenu;
         }
 
         protected override void LoadContent()
@@ -53,6 +57,8 @@ namespace HolySplit
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             view.LoadContent(Content);
+            smallFont = Content.Load<SpriteFont>("fonts/smallfont");
+            largeFont = Content.Load<SpriteFont>("fonts/largefont");
         }
 
         protected override void Update(GameTime gameTime)
@@ -73,10 +79,16 @@ namespace HolySplit
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Orange);
+            GraphicsDevice.Clear(Color.WhiteSmoke);
+
+            spriteBatch.Begin();
 
             if (gameState == GameState.MainMenu)
             {
+                spriteBatch.DrawString(largeFont, GAME_TITLE, new Vector2(0, 0), Color.Black);
+                spriteBatch.DrawString(smallFont, HOW_TO_PLAY, new Vector2(0, 70), Color.Black);
+                spriteBatch.DrawString(smallFont, CONTROLS, new Vector2(0, 200), Color.Black);
+                spriteBatch.DrawString(smallFont, CONTINUE, new Vector2(0, 400), Color.Black);
             }
             else if (gameState == GameState.Game)
             {
@@ -85,6 +97,8 @@ namespace HolySplit
             else if (gameState == GameState.ScoreScreen)
             {
             }
+
+            spriteBatch.End();
             
             base.Draw(gameTime);
         }
