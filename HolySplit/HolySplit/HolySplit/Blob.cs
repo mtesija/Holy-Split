@@ -28,7 +28,7 @@ namespace HolySplit
             this.velocity = Vector2.Zero;
             this.speed = speed;
             splitTimer = new Timer(Map.random.Next(8, 12));
-            directionTimer = new Timer(Map.random.Next(3, 5));
+            directionTimer = new Timer(.1f);
             positiveTimer = new Timer(Map.random.Next(4, 6));
             destroyThis = false;
         }
@@ -129,6 +129,27 @@ namespace HolySplit
             }
 
             destroyThis = true;
+        }
+        
+        public void Collide(Bullet b, ref List<Blob> blobs)
+        {
+            if (b.hitbox.Intersects(hitbox))
+            {
+                if (b.color == RED)
+                {
+                    if (Color.Equals(RED, this.color) || Color.Equals(ORANGE, this.color) || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
+
+                }
+                else if (this.color == BLUE)
+                {
+
+                }
+                else if (this.color == YELLOW)
+                {
+
+
+                }
+            }
         }
 
         private void rotateVec(Vector2 vec, double deg)
@@ -247,7 +268,7 @@ namespace HolySplit
 
             }
 
-            if (velocity.X != 0 && velocity.Y != 0)
+            if (velocity.X != 0 || velocity.Y != 0)
                 this.velocity.Normalize();
 
             this.velocity *= speed;
