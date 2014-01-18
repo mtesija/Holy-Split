@@ -48,7 +48,7 @@ namespace HolySplit
             bullets = new List<Bullet>();
             random = new Random();
 
-            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 2, 50), Color.Gray, 1));
+            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, 1));
             //for (int i = 0; i < 15; ++i)//TESTCODE
             //{
             //    blobs.Add( new Blob(new Vector2(random.Next(0, HolySplitGame.SCREEN_WIDTH - 50), random.Next(0, HolySplitGame.SCREEN_HEIGHT - 50)), Color.Gray, 1));
@@ -65,7 +65,7 @@ namespace HolySplit
             player.Update(gameTime, ref bullets);
             foreach (Blob b in blobs)
             {
-                b.Update(gameTime, ref player, ref random, ref newBlobs);
+                b.Update(gameTime, ref player, ref newBlobs);
                 //player.Collide(b);
             }
             foreach (Blob b in newBlobs)
