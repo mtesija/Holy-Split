@@ -30,16 +30,19 @@ namespace HolySplit
             velocity = Vector2.Zero;
             if (currentKeyboard.IsKeyDown(Keys.W))
             {
-                velocity.Y = -1;
+                velocity.Y += -1;
             }
             if (currentKeyboard.IsKeyDown(Keys.A))
             {
+                velocity.X += -1;
             }
             if (currentKeyboard.IsKeyDown(Keys.S))
             {
+                velocity.Y += 1;
             }
             if (currentKeyboard.IsKeyDown(Keys.D))
             {
+                velocity.X += 1;
             }
             if (currentKeyboard.IsKeyDown(Keys.NumPad1))
             {
