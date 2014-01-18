@@ -20,16 +20,16 @@ namespace HolySplit
         Timer positiveTimer;
         int positive = 0;
 
-        public Blob(Vector2 location, Color color, int speed)
+        public Blob(Vector2 location, Color color, float speed)
         {
             this.location = location;
             this.color = color;
             this.hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
             this.velocity = Vector2.Zero;
             this.speed = speed;
-            splitTimer = new Timer(Map.random.Next(8, 12));
-            directionTimer = new Timer(.1f);
-            positiveTimer = new Timer(.1f);
+            splitTimer = new Timer(Map.random.Next(7, 12));
+            directionTimer = new Timer(.01f);
+            positiveTimer = new Timer(.01f);
             destroyThis = false;
         }
 
@@ -85,24 +85,24 @@ namespace HolySplit
                 //blobs.Add(new Blob(this.location, BLUEPURPLE, this.speed));
                 //blobs.Add(new Blob(this.location, YELLOWGREEN, this.speed));
                 //blobs.Add(new Blob(this.location, YELLOWORANGE, this.speed));
-                blobs.Add(new Blob(this.location, PURPLE, this.speed));
-                blobs.Add(new Blob(this.location, GREEN, this.speed));
-                blobs.Add(new Blob(this.location, ORANGE, this.speed));
+                blobs.Add(new Blob(this.location, PURPLE, this.speed + (float)Map.random.NextDouble() * .3f));
+                blobs.Add(new Blob(this.location, GREEN, this.speed + (float)Map.random.NextDouble() * .5f));
+                blobs.Add(new Blob(this.location, ORANGE, this.speed + (float)Map.random.NextDouble() * .6f));
             }
             else if (color == PURPLE)
             {
-                blobs.Add(new Blob(this.location, RED, this.speed));
-                blobs.Add(new Blob(this.location, BLUE, this.speed));
+                blobs.Add(new Blob(this.location, RED, this.speed - (float)Map.random.NextDouble() * 1.1f));
+                blobs.Add(new Blob(this.location, BLUE, this.speed - (float)Map.random.NextDouble() * 1.5f));
             }
             else if (color == GREEN)
             {
-                blobs.Add(new Blob(this.location, BLUE, this.speed));
-                blobs.Add(new Blob(this.location, YELLOW, this.speed));
+                blobs.Add(new Blob(this.location, BLUE, this.speed - (float)Map.random.NextDouble() * 1.5f));
+                blobs.Add(new Blob(this.location, YELLOW, this.speed - (float)Map.random.NextDouble() * 1.3f));
             }
             else if (color == ORANGE)
             {
-                blobs.Add(new Blob(this.location, YELLOW, this.speed));
-                blobs.Add(new Blob(this.location, RED, this.speed));
+                blobs.Add(new Blob(this.location, YELLOW, this.speed - (float)Map.random.NextDouble() * 1.3f));
+                blobs.Add(new Blob(this.location, RED, this.speed - (float)Map.random.NextDouble() * 1.1f));
             }
             else if (color == REDORANGE)
             {
@@ -184,13 +184,13 @@ namespace HolySplit
             if (splitTimer.CheckTimer())
             {
                 Split(ref blobs);
-                splitTimer.resetTimer(Map.random.Next(8, 12));
+                splitTimer.resetTimer(Map.random.Next(7, 12));
             }
 
             if (positiveTimer.CheckTimer())
             {
                 this.positive = Map.random.Next(0, 2);
-                positiveTimer.resetTimer(Map.random.Next(4, 6));
+                positiveTimer.resetTimer(Map.random.Next(5, 7));
             }
 
             if (color == GRAY)
@@ -296,26 +296,26 @@ namespace HolySplit
             if (location.X < 0 + WALL_SIZE)
             {
                 this.location.X = 0 + WALL_SIZE;
-                this.direction += 180;
+                this.direction += 180 + Map.random.Next(-20, 20);
                 directionTimer.resetTimer(6);
             }
             else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE)
             {
                 this.location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE;
-                this.direction += 180;
+                this.direction += 180 + Map.random.Next(-20, 20);
                 directionTimer.resetTimer(6);
             }
 
             if (location.Y < 0 + WALL_SIZE)
             {
                 this.location.Y = 0 + WALL_SIZE;
-                this.direction += 180;
+                this.direction += 180 + Map.random.Next(-20, 20);
                 directionTimer.resetTimer(6);
             }
             else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE)
             {
                 this.location.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE;
-                this.direction += 180;
+                this.direction += 180 + Map.random.Next(-20, 20);
                 directionTimer.resetTimer(6);
             }
 
