@@ -26,7 +26,10 @@ namespace HolySplit
         public Player player;
         public List<Blob> blobs, newBlobs;
         public List<Bullet> bullets;
+<<<<<<< HEAD
         public static Random random;
+=======
+>>>>>>> c9ec0e4c29b253fa11d2ed491ae2938dd52ba744
         public int score;
 
         public Map()
