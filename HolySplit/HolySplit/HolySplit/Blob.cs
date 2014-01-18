@@ -65,7 +65,14 @@ namespace HolySplit
 
         public void Split(ref List<Blob> blobs)
         {
-            blobs.Add(new Blob(this.location, this.color, this.speed));
+            if (Color.Equals(this.color, GRAY))
+            {
+                this.Kill(ref blobs);
+            }
+            else
+            {
+                blobs.Add(new Blob(this.location, this.color, this.speed));
+            }
         }
 
         public void Kill(ref List<Blob> blobs)
@@ -176,7 +183,7 @@ namespace HolySplit
         {
             if (splitTimer.CheckTimer())
             {
-                Kill(ref blobs);
+                Split(ref blobs);
                 splitTimer.resetTimer(Map.random.Next(8, 12));
             }
 
