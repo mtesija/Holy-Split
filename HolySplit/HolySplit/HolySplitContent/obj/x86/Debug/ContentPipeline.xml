@@ -44,7 +44,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\smallfont.xnb</Output>
-      <Time>2014-01-18T09:37:31.552467-05:00</Time>
+      <Time>2014-01-18T13:56:21.7439174-05:00</Time>
     </Item>
     <Item>
       <Source>fonts\largefont.spritefont</Source>
@@ -53,7 +53,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\largefont.xnb</Output>
-      <Time>2014-01-18T09:37:48.488292-05:00</Time>
+      <Time>2014-01-18T13:55:08.0597438-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
