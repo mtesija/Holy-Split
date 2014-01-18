@@ -166,6 +166,8 @@ namespace HolySplit
                     else
                         this.Split(ref blobs);
                 }
+
+                b.destroyThis = true;
             }
         }
 

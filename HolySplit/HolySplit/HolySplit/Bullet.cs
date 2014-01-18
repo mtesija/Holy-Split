@@ -22,6 +22,21 @@ namespace HolySplit
 
         public void Update(GameTime gameTime)
         {
+            this.location.X += this.velocity.X;
+            this.location.Y += this.velocity.Y;
+
+            if (location.X < 0 + WALL_SIZE)
+                this.destroyThis = true;
+            else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE)
+                this.destroyThis = true;
+
+            if (location.Y < 0 + WALL_SIZE)
+                this.destroyThis = true;
+            else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE)
+                this.destroyThis = true;
+
+            this.hitbox.X = (int)this.location.X;
+            this.hitbox.Y = (int)this.location.Y;
         }
     }
 }
