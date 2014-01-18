@@ -45,7 +45,7 @@ namespace HolySplit
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferHeight = SCREEN_HEIGHT;
+            graphics.PreferredBackBufferHeight = SCREEN_HEIGHT + PhysicsObject.CHARACTER_SIZE;
             graphics.PreferredBackBufferWidth = SCREEN_WIDTH;
 
             map = new Map();

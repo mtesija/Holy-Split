@@ -22,3 +22,5 @@ C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\C
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\tiles.xnb
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\smallfont.xnb
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\largefont.xnb
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\gun.xnb
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\select.xnb

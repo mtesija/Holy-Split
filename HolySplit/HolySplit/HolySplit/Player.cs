@@ -14,6 +14,7 @@ namespace HolySplit
 {
     class Player : PhysicsObject
     {
+        public int selectedWeapon;
 
         public Player(Vector2 location)
         {
@@ -21,6 +22,7 @@ namespace HolySplit
             speed = PLAYER_SPEED;
             velocity = Vector2.Zero;
             hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
+            selectedWeapon = 0;
             color = YELLOW;
             destroyThis = false;
         }
@@ -52,14 +54,17 @@ namespace HolySplit
             {
                 velocity.X += 1;
             }
-            if (currentKeyboard.IsKeyDown(Keys.NumPad1))
+            if (currentKeyboard.IsKeyDown(Keys.D1))
             {
+                selectedWeapon = 0;
             }
-            if (currentKeyboard.IsKeyDown(Keys.NumPad2))
+            if (currentKeyboard.IsKeyDown(Keys.D2))
             {
+                selectedWeapon = 1;
             }
-            if (currentKeyboard.IsKeyDown(Keys.NumPad3))
+            if (currentKeyboard.IsKeyDown(Keys.D3))
             {
+                selectedWeapon = 2;
             }
 
             if(velocity.X != 0 || velocity.Y != 0)
