@@ -36,19 +36,19 @@ namespace HolySplit
             KeyboardState currentKeyboard = Keyboard.GetState();
 
             velocity = Vector2.Zero;
-            if (currentKeyboard.IsKeyDown(Keys.W))
+            if (currentKeyboard.IsKeyDown(Keys.W) || currentKeyboard.IsKeyDown(Keys.Up))
             {
                 velocity.Y += -1;
             }
-            if (currentKeyboard.IsKeyDown(Keys.A))
+            if (currentKeyboard.IsKeyDown(Keys.A) || currentKeyboard.IsKeyDown(Keys.Left))
             {
                 velocity.X += -1;
             }
-            if (currentKeyboard.IsKeyDown(Keys.S))
+            if (currentKeyboard.IsKeyDown(Keys.S) || currentKeyboard.IsKeyDown(Keys.Down))
             {
                 velocity.Y += 1;
             }
-            if (currentKeyboard.IsKeyDown(Keys.D))
+            if (currentKeyboard.IsKeyDown(Keys.D) || currentKeyboard.IsKeyDown(Keys.Right))
             {
                 velocity.X += 1;
             }

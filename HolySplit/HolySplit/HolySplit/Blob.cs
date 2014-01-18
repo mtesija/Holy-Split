@@ -131,27 +131,30 @@ namespace HolySplit
             destroyThis = true;
         }
         
-        public void Collide(Bullet b, ref List<Blob> blobs)
+        public void BulletCollide(Bullet b, ref List<Blob> blobs)
         {
             if (b.hitbox.Intersects(hitbox))
             {
                 if (b.color == RED)
                 {
-                    if (Color.Equals(RED, this.color) || Color.Equals(ORANGE, this.color) || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
+                    if (Color.Equals(RED, this.color) || Color.Equals(ORANGE, this.color) 
+                        || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
                         this.Kill(ref blobs);
                     else
                         this.Split(ref blobs);
                 }
                 else if (this.color == BLUE)
                 {
-                    if (Color.Equals(BLUE, this.color) || Color.Equals(GREEN, this.color) || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
+                    if (Color.Equals(BLUE, this.color) || Color.Equals(GREEN, this.color) 
+                        || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
                         this.Kill(ref blobs);
                     else
                         this.Split(ref blobs);
                 }
                 else if (this.color == YELLOW)
                 {
-                    if (Color.Equals(YELLOW, this.color) || Color.Equals(ORANGE, this.color) || Color.Equals(GREEN, this.color) || Color.Equals(GRAY, this.color))
+                    if (Color.Equals(YELLOW, this.color) || Color.Equals(ORANGE, this.color) 
+                        || Color.Equals(GREEN, this.color) || Color.Equals(GRAY, this.color))
                         this.Kill(ref blobs);
                     else
                         this.Split(ref blobs);
