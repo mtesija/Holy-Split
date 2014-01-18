@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace HolySplit
 {
-    class Player : PhysicsObject
+    class Bullet : PhysicsObject
     {
         public void Update(GameTime gameTime)
         {

@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace HolySplit
 {
-    class Blob : Character
+    class Blob : PhysicsObject
     {
         Color BLUE = Color.Blue;
         Color YELLOW = Color.Yellow;

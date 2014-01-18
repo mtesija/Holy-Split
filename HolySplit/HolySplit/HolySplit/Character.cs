@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace HolySplit
 {
-    class Character
+    class PhysicsObject
     {
         public const int CHARACTER_SIZE = 20;
 
