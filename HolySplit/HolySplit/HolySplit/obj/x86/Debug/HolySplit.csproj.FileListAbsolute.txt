@@ -1,0 +1,6 @@
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\HolySplit.exe
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\HolySplit.pdb
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\obj\x86\Debug\HolySplit.csprojResolveAssemblyReference.cache
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\obj\x86\Debug\HolySplit.exe
+C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\obj\x86\Debug\HolySplit.pdb
