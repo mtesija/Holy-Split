@@ -65,45 +65,47 @@ namespace HolySplit
 
         public void Update(GameTime gameTime, ref Player player)
         {
+            //SPLIT HERE
 
+            this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
 
-            if (color == GRAY)
+            if (color == RED)
             {
-                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
-            }
-            else if (color == RED)
-            {
-                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+                Matrix rotation = new Matrix(.866f, .5f, 0, 0, -.5f, .866f, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                this.velocity = Vector2.Transform(this.velocity, rotation);
             }
             else if (color == BLUE)
             {
-                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+                Matrix rotation = new Matrix(.866f, -.5f, 0, 0, .5f, .866f, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                this.velocity = Vector2.Transform(this.velocity, rotation);
             }
             else if (color == YELLOW)
             {
-                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+
             }
             else if (color == PURPLE)
             {
-                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+                Matrix rotation = new Matrix(.174f, -.985f, 0, 0, .985f, .174f, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                this.velocity = Vector2.Transform(this.velocity, rotation);
             }
             else if (color == GREEN)
             {
-                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+                Matrix rotation = new Matrix(.174f, .985f, 0, 0, -.985f, .174f, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                this.velocity = Vector2.Transform(this.velocity, rotation);
             }
             else if (color == ORANGE)
             {
-                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+
             }
 
-            velocity.Normalize();
-            velocity *= speed;
+            this.velocity.Normalize();
+            this.velocity *= speed;
 
-            location.X += velocity.X;
-            location.Y += velocity.Y;
+            this.location.X += this.velocity.X;
+            this.location.Y += this.velocity.Y;
 
-            hitbox.X = (int)location.X;
-            hitbox.Y = (int)location.Y;
+            this.hitbox.X = (int)this.location.X;
+            this.hitbox.Y = (int)this.location.Y;
         }
     }
 }
