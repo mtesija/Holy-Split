@@ -17,7 +17,7 @@ namespace HolySplit
         int direction = 0;
         int directionMod = 0;
 
-        Blob(Vector2 location, Color color, int speed)
+        public Blob(Vector2 location, Color color, int speed)
         {
             this.location = location;
             this.color = color;

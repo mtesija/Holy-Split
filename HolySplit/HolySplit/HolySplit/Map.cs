@@ -19,8 +19,8 @@ namespace HolySplit
 
     class Map
     {
-        public const int MAP_WIDTH = 35;
-        public const int MAP_HEIGHT = 35;
+        public const int MAP_WIDTH = 20;
+        public const int MAP_HEIGHT = 20;
 
         public Tile[,] tiles;
         public Player player;
@@ -41,7 +41,8 @@ namespace HolySplit
             }
             player = new Player(new Vector2(400, 400));
             blobs = new List<Blob>();
-            //TODO: Add first grey blob
+
+            blobs.Add(new Blob(new Vector2(100, 100), Color.Gray, 1));
         }
 
         public void Update(GameTime gameTime)

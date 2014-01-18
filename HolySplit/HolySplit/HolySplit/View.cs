@@ -15,7 +15,7 @@ namespace HolySplit
     class View
     {
         const int SOURCE_SIZE = 100;
-        const int DESTINATION_SIZE = 20;
+        const int DESTINATION_SIZE = 35;
 
         private Texture2D player, blob, tiles, bullet;
         Rectangle sourceRect;
@@ -43,6 +43,9 @@ namespace HolySplit
                     sourceRect.X = map.tiles[i, j].tileType * SOURCE_SIZE;
                     spriteBatch.Draw(tiles, new Rectangle(i * DESTINATION_SIZE, j * DESTINATION_SIZE, DESTINATION_SIZE, DESTINATION_SIZE), sourceRect, Color.White);
                 }
+
+            foreach (Blob b in map.blobs)
+                spriteBatch.Draw(blob, b.hitbox, b.color);
 
             spriteBatch.Draw(player, map.player.hitbox, Color.Red);
 

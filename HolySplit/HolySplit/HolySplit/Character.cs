@@ -28,13 +28,12 @@ namespace HolySplit
         public Color YELLOWORANGE = Color.Gold;
         public Color GRAY = Color.Gray;
 
-        public const int CHARACTER_SIZE = 20;
+        public const int CHARACTER_SIZE = 35;
 
         public Rectangle hitbox;
         public Vector2 velocity;
         public Vector2 location;
         public Color color;
         public int speed;
-
     }
 }
