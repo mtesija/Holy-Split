@@ -138,7 +138,9 @@ namespace HolySplit
                 if (b.color == RED)
                 {
                     if (Color.Equals(RED, this.color) || Color.Equals(ORANGE, this.color) || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
+                    {
 
+                    }
                 }
                 else if (this.color == BLUE)
                 {
