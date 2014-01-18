@@ -70,7 +70,9 @@ namespace HolySplit
             foreach (Blob b in blobs)
             {
                 b.Update(gameTime, ref player, ref newBlobs);
-                //player.Collide(b);
+                for (int i = 0; i < bullets.Count; ++i)
+                    b.BulletCollide(bullets[i], ref newBlobs);
+                player.Collide(b);
             }
             foreach (Blob b in newBlobs)
                 blobs.Add(b);
