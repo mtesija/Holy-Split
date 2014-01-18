@@ -18,7 +18,7 @@ namespace HolySplit
         public Player(Vector2 location)
         {
             this.location = location;
-            speed = 1;
+            speed = 3;
             velocity = Vector2.Zero;
             hitbox = new Rectangle((int)location.X, (int)location.Y, CHARACTER_SIZE, CHARACTER_SIZE);
         }
@@ -53,7 +53,9 @@ namespace HolySplit
             if (currentKeyboard.IsKeyDown(Keys.NumPad3))
             {
             }
-            velocity.Normalize();
+
+            if(velocity.X != 0 && velocity.Y != 0)
+                velocity.Normalize();
             velocity *= speed;
 
             location.X += velocity.X;

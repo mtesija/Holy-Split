@@ -165,7 +165,8 @@ namespace HolySplit
                 rotateVec(this.velocity, this.direction);
             }
 
-            this.velocity.Normalize();
+            if (velocity.X != 0 && velocity.Y != 0)
+                this.velocity.Normalize();
             this.velocity *= speed;
 
             this.location.X += this.velocity.X;
