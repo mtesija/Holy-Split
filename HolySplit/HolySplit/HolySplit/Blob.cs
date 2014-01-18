@@ -33,18 +33,76 @@ namespace HolySplit
 
         void Split(ref List<Blob> blobs, ref Random random)
         {
-            random.Next(7);
+            if (color == GRAY)
+            {
+
+            }
+            else if (color == RED)
+            {
+
+            }
+            else if (color == BLUE)
+            {
+
+            }
+            else if (color == YELLOW)
+            {
+
+            }
+            else if (color == PURPLE)
+            {
+
+            }
+            else if (color == GREEN)
+            {
+
+            }
+            else if (color == YELLOW)
+            {
+
+            }
+
+
+
+
+            //DELETE THIS
+
+
         }
 
         void Update(GameTime gameTime, ref Player player)
         {
-            if (color == RED)
+            if (color == GRAY)
+            {
+                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+            }
+            else if (color == RED)
             {
                 this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
             }
             else if (color == BLUE)
             {
+                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
             }
+            else if (color == YELLOW)
+            {
+                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+            }
+            else if (color == PURPLE)
+            {
+                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+            }
+            else if (color == GREEN)
+            {
+                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+            }
+            else if (color == ORANGE)
+            {
+                this.velocity = new Vector2(player.location.X - this.location.X, player.location.Y - this.location.Y);
+            }
+
+            velocity.Normalize();
+            velocity *= speed;
 
             location.X += velocity.X;
             location.Y += velocity.Y;
