@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\blob.xnb</Output>
-      <Time>2014-01-18T10:44:02.2138983-05:00</Time>
+      <Output>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\blob.xnb</Output>
+      <Time>2014-01-18T11:38:36.7960245-05:00</Time>
     </Item>
     <Item>
       <Source>images\bullet.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\bullet.xnb</Output>
-      <Time>2014-01-18T10:44:02.2148972-05:00</Time>
+      <Output>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\bullet.xnb</Output>
+      <Time>2014-01-18T11:38:36.7970245-05:00</Time>
     </Item>
     <Item>
       <Source>images\player.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\player.xnb</Output>
-      <Time>2014-01-18T10:44:02.2168985-05:00</Time>
+      <Output>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\player.xnb</Output>
+      <Time>2014-01-18T11:38:36.7990247-05:00</Time>
     </Item>
     <Item>
       <Source>images\tiles.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\tiles.xnb</Output>
-      <Time>2014-01-18T10:44:02.217899-05:00</Time>
+      <Output>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\tiles.xnb</Output>
+      <Time>2014-01-18T11:38:36.8000247-05:00</Time>
     </Item>
     <Item>
       <Source>fonts\smallfont.spritefont</Source>
@@ -43,8 +43,13 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
+      <Output>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\smallfont.xnb</Output>
+      <Time>2014-01-18T11:38:36.7950244-05:00</Time>
+=======
       <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\smallfont.xnb</Output>
       <Time>2014-01-18T13:56:21.7439174-05:00</Time>
+>>>>>>> d774a5b167a95485badc14c5be555f366cb9eb18
     </Item>
     <Item>
       <Source>fonts\largefont.spritefont</Source>
@@ -52,8 +57,13 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
+      <Output>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\largefont.xnb</Output>
+      <Time>2014-01-18T11:38:36.7940244-05:00</Time>
+=======
       <Output>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\largefont.xnb</Output>
       <Time>2014-01-18T13:55:08.0597438-05:00</Time>
+>>>>>>> d774a5b167a95485badc14c5be555f366cb9eb18
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -61,39 +71,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplitContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplitContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplitContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplitContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-09-27T21:17:39.9975093-04:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-01-17T21:16:52.3188935-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
