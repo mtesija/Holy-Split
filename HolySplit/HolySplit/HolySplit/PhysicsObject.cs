@@ -17,20 +17,20 @@ namespace HolySplit
         //Color
         public Color GRAY = Color.Gray;
         //Primary
-        public Color RED = Color.Red;
-        public Color BLUE = Color.Blue;
-        public Color YELLOW = Color.Yellow;
+        public Color RED = Color.OrangeRed;
+        public Color BLUE = Color.DodgerBlue;
+        public Color YELLOW = Color.Gold;
         //Secondary
         public Color PURPLE = Color.DarkViolet;
         public Color GREEN = Color.ForestGreen;
         public Color ORANGE = Color.DarkOrange;
         //Tertiary
-        public Color REDORANGE = Color.OrangeRed;
-        public Color REDPURPLE = Color.MediumVioletRed;
-        public Color BLUEPURPLE = Color.BlueViolet;
-        public Color BLUEGREEN = Color.MediumTurquoise;
-        public Color YELLOWGREEN = Color.YellowGreen;
-        public Color YELLOWORANGE = Color.Gold;
+        public Color REDORANGE = Color.Black;
+        public Color REDPURPLE = Color.Black;
+        public Color BLUEPURPLE = Color.Black;
+        public Color BLUEGREEN = Color.Black;
+        public Color YELLOWGREEN = Color.Black;
+        public Color YELLOWORANGE = Color.Black;
 
         public const int CHARACTER_SIZE = 35;
         public const int BULLET_SIZE = 35;

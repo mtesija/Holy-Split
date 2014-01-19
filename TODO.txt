@@ -11,17 +11,20 @@
 
 //Tomorrow
 [~M] blob AI
-[X] high score saving and loading
+[~M] Game tweaking
 [A] Animations
-[X] Split based on the color blob was shot with
-[X] Poster
-[S] Get poster printed
+[~S] Get poster printed
 [S] Hold tab to see the rules
 [A] rules page
-[X] Sounds
-[X] Music
-[A] Music in game
-[M] Colors
 [A] Menu pulse
-[X] Outline crosshair with black
 [A or S] Make score screen better
+[M] difficulty?
+
+[X] high score saving and loading
+[X] Split based on the color blob was shot with
+[X] Poster
+[X] Music
+[X] Music in game
+[X] Sounds
+[X] Outline crosshair with black
+[X] Colors

@@ -55,6 +55,7 @@ namespace HolySplit
 
             view = new View();
             gameState = GameState.MainMenu;
+            scores = String.Empty;
 
             SoundEffect.MasterVolume = 0.5f;
             MediaPlayer.IsRepeating = true;
@@ -77,6 +78,7 @@ namespace HolySplit
             gameSong = Content.Load<Song>("music/splittington");
             scoreSong = Content.Load<Song>("music/supersplitter");
 
+            MediaPlayer.Play(menuSong);
         }
 
         protected override void Update(GameTime gameTime)
