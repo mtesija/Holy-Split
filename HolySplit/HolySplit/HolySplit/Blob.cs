@@ -244,9 +244,9 @@ namespace HolySplit
             else if (color == BLUE)
             {
                 if (this.positive < 0)
-                    this.direction = Map.random.Next(-25, -10);
+                    this.direction = Map.random.Next(-50, -10);
                 else
-                    this.direction = Map.random.Next(10, 25);
+                    this.direction = Map.random.Next(10, 50);
 
                 this.velocity = player.location - this.location;
                 rotateVec(this.velocity, this.direction);
@@ -254,9 +254,9 @@ namespace HolySplit
             else if (color == YELLOW)
             {
                 if (this.positive < 0)
-                    this.direction = Map.random.Next(-50, 30);
+                    this.direction = Map.random.Next(-60, 30);
                 else
-                    this.direction = Map.random.Next(30, 50);
+                    this.direction = Map.random.Next(30, 60);
 
                 this.velocity = player.location - this.location;
                 rotateVec(this.velocity, this.direction);
