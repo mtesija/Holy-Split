@@ -37,7 +37,7 @@ namespace HolySplit
                 destroyThis = true;
         }
 
-        public void Update(GameTime gameTime, ref List<Bullet> bullets)
+        public void Update(GameTime gameTime, ref List<Bullet> bullets, ref SoundEffect shoot)
         {
             KeyboardState currentKeyboard = Keyboard.GetState();
 
@@ -109,6 +109,7 @@ namespace HolySplit
                 {
                     bulletVelocity.Normalize();
                     bullets.Add(new Bullet(this.location, bulletVelocity, this.color));
+                    shoot.Play();
                 }
             }
             previousMouse = mouse;

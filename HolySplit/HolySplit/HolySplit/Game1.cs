@@ -14,7 +14,6 @@ namespace HolySplit
     public class HolySplitGame : Microsoft.Xna.Framework.Game
     {
         private KeyboardState previousKeyboardState;
-        private bool bResetMap;
 
         public const int SCREEN_WIDTH = 700;
         public const int SCREEN_HEIGHT = 700;
@@ -30,6 +29,8 @@ namespace HolySplit
 
         SpriteFont smallFont;
         SpriteFont largeFont;
+
+        SoundEffect destroy, split, shoot;
 
         private Texture2D mainMenu;
 
@@ -58,6 +59,8 @@ namespace HolySplit
 
             view = new View();
             gameState = GameState.MainMenu;
+
+            SoundEffect.MasterVolume = 0.5f;
         }
 
         protected override void LoadContent()
@@ -68,6 +71,9 @@ namespace HolySplit
             smallFont = Content.Load<SpriteFont>("fonts/smallfont");
             largeFont = Content.Load<SpriteFont>("fonts/largefont");
             mainMenu = Content.Load<Texture2D>("images/mainmenu");
+            destroy = Content.Load<SoundEffect>("sounds/explosion");
+            split = Content.Load<SoundEffect>("sounds/hit");
+            shoot = Content.Load<SoundEffect>("sounds/shoot");
         }
 
         protected override void Update(GameTime gameTime)
@@ -78,7 +84,7 @@ namespace HolySplit
             {
                 if (curKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
                 {
-                    map = new Map();
+                    map = new Map(ref destroy, ref shoot, ref split);
                     gameState = GameState.Game;
                 }
                 else if (curKeyboard.IsKeyDown(Keys.Back) && previousKeyboardState.IsKeyUp(Keys.Back))

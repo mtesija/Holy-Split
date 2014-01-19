@@ -39,8 +39,14 @@ namespace HolySplit
         public Score score;
         public DateTime startTime;
 
-        public Map()
+        SoundEffect destroy, split, shoot;
+
+        public Map(ref SoundEffect destroy, ref SoundEffect shoot, ref SoundEffect split)
         {
+            this.destroy = destroy;
+            this.shoot = shoot;
+            this.split = split;
+
             tiles = new Tile[MAP_WIDTH, MAP_HEIGHT];
             for (int i = 0; i < MAP_WIDTH; ++i)
             {
@@ -90,15 +96,15 @@ namespace HolySplit
 
         public void Update(GameTime gameTime)
         {
-            player.Update(gameTime, ref bullets);
+            player.Update(gameTime, ref bullets, ref shoot);
             foreach (Bullet b in bullets)
                 b.Update(gameTime);
             foreach (Blob b in blobs)
             {
-                b.Update(gameTime, ref player, ref newBlobs);
+                b.Update(gameTime, ref player, ref newBlobs, ref split, ref destroy);
                 for (int i = 0; i < bullets.Count; ++i)
                 {
-                    b.BulletCollide(bullets[i], ref newBlobs);
+                    b.BulletCollide(bullets[i], ref newBlobs, ref split, ref destroy);
                     if (bullets[i].destroyThis)
                     {
                         bullets.RemoveAt(i);

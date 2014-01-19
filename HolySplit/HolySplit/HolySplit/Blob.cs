@@ -63,11 +63,12 @@ namespace HolySplit
             }
         }
 
-        public void Split(ref List<Blob> blobs)
+        public void Split(ref List<Blob> blobs, ref SoundEffect split, ref SoundEffect destroy)
         {
+            split.Play();
             if (Color.Equals(this.color, GRAY))
             {
-                this.Kill(ref blobs);
+                this.Kill(ref blobs, ref destroy);
             }
             else
             {
@@ -75,8 +76,9 @@ namespace HolySplit
             }
         }
 
-        public void Kill(ref List<Blob> blobs)
+        public void Kill(ref List<Blob> blobs, ref SoundEffect destroy)
         {
+            destroy.Play();
             if (color == GRAY)
             {
                 //blobs.Add(new Blob(this.location, REDORANGE, this.speed));
@@ -138,7 +140,7 @@ namespace HolySplit
             this.destroyThis = true;
         }
         
-        public void BulletCollide(Bullet b, ref List<Blob> blobs)
+        public void BulletCollide(Bullet b, ref List<Blob> blobs, ref SoundEffect split, ref SoundEffect destroy)
         {
             if (b.hitbox.Intersects(hitbox))
             {
@@ -146,37 +148,55 @@ namespace HolySplit
                 {
                     if (Color.Equals(RED, this.color) || Color.Equals(ORANGE, this.color)
                         || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
-                        this.Kill(ref blobs);
+                        this.Kill(ref blobs, ref destroy);
                     else if (Color.Equals(BLUE, this.color))
+                    {
+                        split.Play();
                         blobs.Add(new Blob(this.location, PURPLE, this.speed));
+                    }
                     else if (Color.Equals(YELLOW, this.color))
+                    {
+                        split.Play();
                         blobs.Add(new Blob(this.location, ORANGE, this.speed));
+                    }
                     else
-                        this.Split(ref blobs);
+                        this.Split(ref blobs, ref split, ref destroy);
                 }
                 else if (b.color == BLUE)
                 {
                     if (Color.Equals(BLUE, this.color) || Color.Equals(GREEN, this.color) 
                         || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
-                        this.Kill(ref blobs);
+                        this.Kill(ref blobs, ref destroy);
                     else if (Color.Equals(RED, this.color))
+                    {
+                        split.Play();
                         blobs.Add(new Blob(this.location, PURPLE, this.speed));
+                    }
                     else if (Color.Equals(YELLOW, this.color))
+                    {
+                        split.Play();
                         blobs.Add(new Blob(this.location, GREEN, this.speed));
+                    }
                     else
-                        this.Split(ref blobs);
+                        this.Split(ref blobs, ref split, ref destroy);
                 }
                 else if (b.color == YELLOW)
                 {
                     if (Color.Equals(YELLOW, this.color) || Color.Equals(ORANGE, this.color) 
                         || Color.Equals(GREEN, this.color) || Color.Equals(GRAY, this.color))
-                        this.Kill(ref blobs);
+                        this.Kill(ref blobs, ref destroy);
                     else if (Color.Equals(BLUE, this.color))
+                    {
+                        split.Play();
                         blobs.Add(new Blob(this.location, GREEN, this.speed));
+                    }
                     else if (Color.Equals(RED, this.color))
+                    {
+                        split.Play();
                         blobs.Add(new Blob(this.location, ORANGE, this.speed));
+                    }
                     else
-                        this.Split(ref blobs);
+                        this.Split(ref blobs, ref split, ref destroy);
                 }
 
                 b.destroyThis = true;
@@ -193,11 +213,11 @@ namespace HolySplit
             return;
         }
 
-        public void Update(GameTime gameTime, ref Player player, ref List<Blob> blobs)
+        public void Update(GameTime gameTime, ref Player player, ref List<Blob> blobs, ref SoundEffect split, ref SoundEffect destroy)
         {
             if (splitTimer.CheckTimer())
             {
-                Split(ref blobs);
+                Split(ref blobs, ref split, ref destroy);
                 splitTimer.resetTimer(Map.random.Next(7, 12));
             }
 

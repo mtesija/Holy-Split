@@ -20,3 +20,5 @@
 [A] Sounds
 [N] Music
 [M] Colors
+[A] Menu pulse
+[A] Outline crosshair with black
