@@ -24,4 +24,9 @@ C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\C
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\fonts\largefont.xnb
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\gun.xnb
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\select.xnb
+<<<<<<< HEAD
 C:\Users\Anthony\Desktop\HolySplit\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\aim.xnb
+=======
+C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\gun.xnb
+C:\Users\mtesija\Documents\GitHub\Game\HolySplit\HolySplit\HolySplit\bin\x86\Debug\Content\images\select.xnb
+>>>>>>> d254b0c6c9c29257dbed628382133b356cefd1b4
