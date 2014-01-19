@@ -92,7 +92,7 @@ namespace HolySplit
         {
             int finalScore = (score.enemiesKilled * 100) - (score.numberSplits * 5) + (score.mostEnemiesAlive * 10) + (score.timeSurvived * 25);
             if (score.eradication)
-                finalScore *= 2;
+                finalScore *= 5;
             return finalScore;
         }
 
