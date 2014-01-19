@@ -28,6 +28,8 @@ namespace HolySplit
 
         private Texture2D mainMenu;
         private Texture2D scoreScreen;
+        private Texture2D instructionScreen;
+        private bool showInstructions;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -58,6 +60,8 @@ namespace HolySplit
 
             SoundEffect.MasterVolume = 0.5f;
             MediaPlayer.IsRepeating = true;
+
+            showInstructions = false;
         }
 
         protected override void LoadContent()
@@ -69,11 +73,12 @@ namespace HolySplit
             mediumFont = Content.Load<SpriteFont>("fonts/mediumFont");
             largeFont = Content.Load<SpriteFont>("fonts/largefont");
             mainMenu = Content.Load<Texture2D>("images/mainmenu");
+            instructionScreen = Content.Load<Texture2D>("images/scorescreen");
+            scoreScreen = Content.Load<Texture2D>("images/scorescreen");
             destroy = Content.Load<SoundEffect>("sounds/explosion");
             split = Content.Load<SoundEffect>("sounds/split4");
             shoot = Content.Load<SoundEffect>("sounds/shoot");
             death = Content.Load<SoundEffect>("sounds/death");
-            scoreScreen = Content.Load<Texture2D>("images/scorescreen");
             menuSong = Content.Load<Song>("music/thesplittening");
             gameSong = Content.Load<Song>("music/splittington");
             scoreSong = Content.Load<Song>("music/supersplitter");
@@ -87,6 +92,11 @@ namespace HolySplit
 
             if (gameState == GameState.MainMenu)
             {
+                if (curKeyboard.IsKeyUp(Keys.Tab))
+                {
+                    showInstructions = false;
+                }
+
                 if (curKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
                 {
                     MediaPlayer.Play(gameSong);
@@ -97,6 +107,10 @@ namespace HolySplit
                 {
                     gameState = GameState.ScoreScreen;
                     MediaPlayer.Play(scoreSong);
+                }
+                else if (curKeyboard.IsKeyDown(Keys.Tab))
+                {
+                    showInstructions = true;
                 }
                 else if (curKeyboard.IsKeyDown(Keys.Escape) && previousKeyboardState.IsKeyUp(Keys.Escape))
                 {
@@ -142,6 +156,9 @@ namespace HolySplit
             if (gameState == GameState.MainMenu)
             {
                 spriteBatch.Draw(mainMenu, new Vector2(0, 0), Color.White);
+                
+                if(showInstructions)
+                    spriteBatch.Draw(instructionScreen, new Vector2(0, 0), Color.White);
             }
             else if (gameState == GameState.Game)
             {
