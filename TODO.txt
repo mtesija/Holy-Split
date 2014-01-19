@@ -16,8 +16,8 @@
 [S] Hold tab to see the rules
 [A] rules page
 [A] Menu pulse
-[S] Make score screen better
-[M] difficulty?
+[~S] Make score screen better
+[~M] difficulty?
 [A] Hitbox changes
 
 [X] Get poster printed

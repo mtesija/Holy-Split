@@ -21,8 +21,7 @@ namespace HolySplit
         string scores;
         int highScore, finalScore;
 
-        SpriteFont smallFont;
-        SpriteFont largeFont;
+        SpriteFont smallFont, mediumFont, largeFont;
 
         SoundEffect destroy, split, shoot, death;
         Song menuSong, gameSong, scoreSong;
@@ -68,6 +67,7 @@ namespace HolySplit
             spriteBatch = new SpriteBatch(GraphicsDevice);
             view.LoadContent(Content);
             smallFont = Content.Load<SpriteFont>("fonts/smallfont");
+            mediumFont = Content.Load<SpriteFont>("fonts/mediumFont");
             largeFont = Content.Load<SpriteFont>("fonts/largefont");
             mainMenu = Content.Load<Texture2D>("images/mainmenu");
             destroy = Content.Load<SoundEffect>("sounds/explosion");
@@ -153,7 +153,7 @@ namespace HolySplit
             {
                 spriteBatch.Draw(scoreScreen, new Vector2(0, 0), Color.White );
                 spriteBatch.DrawString(smallFont, scores, new Vector2(0, 0), Color.White);
-                spriteBatch.DrawString(largeFont, "YOUR SCORE: " + finalScore.ToString(), new Vector2(0, 400), Color.Red);
+                spriteBatch.DrawString(mediumFont, "YOUR SCORE: " + finalScore.ToString(), new Vector2(0, 400), Color.Red);
                 spriteBatch.DrawString(largeFont, "HIGH SCORE: " + highScore.ToString(), new Vector2(0, 500), Color.Red);
             }
 
