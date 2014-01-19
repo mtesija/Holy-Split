@@ -19,10 +19,9 @@ namespace HolySplit
         public const int SCREEN_HEIGHT = 700;
 
         string scores;
-        int highScore;
+        int highScore, finalScore;
 
-        SpriteFont smallFont;
-        SpriteFont largeFont;
+        SpriteFont smallFont, mediumFont, largeFont;
 
         SoundEffect destroy, split, shoot, death;
         Song menuSong, gameSong, scoreSong;
@@ -49,6 +48,7 @@ namespace HolySplit
             previousKeyboardState = Keyboard.GetState();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            highScore = finalScore = 0;
 
             graphics.PreferredBackBufferHeight = SCREEN_HEIGHT + PhysicsObject.CHARACTER_SIZE;
             graphics.PreferredBackBufferWidth = SCREEN_WIDTH;
@@ -67,6 +67,7 @@ namespace HolySplit
             spriteBatch = new SpriteBatch(GraphicsDevice);
             view.LoadContent(Content);
             smallFont = Content.Load<SpriteFont>("fonts/smallfont");
+            mediumFont = Content.Load<SpriteFont>("fonts/mediumFont");
             largeFont = Content.Load<SpriteFont>("fonts/largefont");
             mainMenu = Content.Load<Texture2D>("images/mainmenu");
             destroy = Content.Load<SoundEffect>("sounds/explosion");
@@ -113,7 +114,7 @@ namespace HolySplit
                 if (map.player.destroyThis)
                 {
                     gameState = GameState.ScoreScreen;
-                    int finalScore = 0;
+                    finalScore = 0;
                     scores = map.CalculateFinalScore(ref finalScore);
                     if (finalScore > highScore)
                     {
@@ -152,7 +153,8 @@ namespace HolySplit
             {
                 spriteBatch.Draw(scoreScreen, new Vector2(0, 0), Color.White );
                 spriteBatch.DrawString(smallFont, scores, new Vector2(0, 0), Color.White);
-                spriteBatch.DrawString(largeFont, "HIGH SCORE: " + highScore.ToString(), new Vector2(0, 400), Color.Red);
+                spriteBatch.DrawString(mediumFont, "YOUR SCORE: " + finalScore.ToString(), new Vector2(0, 400), Color.Red);
+                spriteBatch.DrawString(largeFont, "HIGH SCORE: " + highScore.ToString(), new Vector2(0, 500), Color.Red);
             }
 
             spriteBatch.End();

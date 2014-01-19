@@ -13,13 +13,14 @@
 [~M] blob AI
 [~M] Game tweaking
 [A] Animations
-[~S] Get poster printed
 [S] Hold tab to see the rules
 [A] rules page
 [A] Menu pulse
-[A or S] Make score screen better
-[M] difficulty?
+[~S] Make score screen better
+[~M] difficulty?
+[A] Hitbox changes
 
+[X] Get poster printed
 [X] high score saving and loading
 [X] Split based on the color blob was shot with
 [X] Poster
