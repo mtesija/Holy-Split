@@ -32,7 +32,7 @@ namespace HolySplit
             sourceRect = new Rectangle(0, 0, SOURCE_SIZE, SOURCE_SIZE);
             gunLocation = new Rectangle((HolySplitGame.SCREEN_WIDTH * 3 / 4) - (GUN_SIZE / 2) - GUN_SIZE, HolySplitGame.SCREEN_HEIGHT - GUN_SIZE / 2, GUN_SIZE, GUN_SIZE);
             fontLocation = new Vector2(FONT_LOCATION, HolySplitGame.SCREEN_HEIGHT - FONT_LOCATION);
-            animationTimer = new Timer(0.3f);
+            animationTimer = new Timer(0.2f);
             animationFrame = 0;
         }
 
@@ -76,7 +76,7 @@ namespace HolySplit
                 spriteBatch.Draw(bullet, b.hitbox, b.color);
 
             spriteBatch.Draw(aim, new Rectangle((int)map.player.aim.X, (int)map.player.aim.Y, AIM_SIZE, AIM_SIZE), map.player.color);
-            spriteBatch.Draw(player, map.player.hitbox, map.player.color);
+            spriteBatch.Draw(player, map.player.hitbox, new Rectangle(animationFrame * SOURCE_SIZE, 0, SOURCE_SIZE, SOURCE_SIZE), map.player.color);
 
             spriteBatch.Draw(select, gunLocation, Color.DarkGray);
             spriteBatch.Draw(gun, gunLocation, map.player.RED);
