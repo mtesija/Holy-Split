@@ -13,6 +13,9 @@ namespace HolySplit
 {
     public class HolySplitGame : Microsoft.Xna.Framework.Game
     {
+        private KeyboardState previousKeyboardState;
+        private bool bResetMap;
+
         public const int SCREEN_WIDTH = 700;
         public const int SCREEN_HEIGHT = 700;
 
@@ -42,15 +45,15 @@ namespace HolySplit
 
         public HolySplitGame()
         {
+            previousKeyboardState = Keyboard.GetState();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
             graphics.PreferredBackBufferHeight = SCREEN_HEIGHT + PhysicsObject.CHARACTER_SIZE;
             graphics.PreferredBackBufferWidth = SCREEN_WIDTH;
 
-            map = new Map();
             view = new View();
-            gameState = GameState.Game;
+            gameState = GameState.MainMenu;
         }
 
         protected override void LoadContent()
@@ -64,19 +67,42 @@ namespace HolySplit
 
         protected override void Update(GameTime gameTime)
         {
+            KeyboardState curKeyboard = Keyboard.GetState();
+
             if (gameState == GameState.MainMenu)
             {
+                if (curKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
+                {
+                    map = new Map();
+                    gameState = GameState.Game;
+                }
+                else if (curKeyboard.IsKeyDown(Keys.Back) && previousKeyboardState.IsKeyUp(Keys.Back))
+                {
+                    gameState = GameState.ScoreScreen;
+                }
+                else if (curKeyboard.IsKeyDown(Keys.Escape) && previousKeyboardState.IsKeyUp(Keys.Escape))
+                {
+                    Exit();
+                }
             }
             else if (gameState == GameState.Game)
             {
+                if (curKeyboard.IsKeyDown(Keys.Escape) && previousKeyboardState.IsKeyUp(Keys.Escape))
+                {
+                    gameState = GameState.ScoreScreen;
+                }
                 map.Update(gameTime);
                 if (map.player.destroyThis)
                     gameState = GameState.ScoreScreen;
             }
             else if (gameState == GameState.ScoreScreen)
             {
+                if (curKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
+                {
+                    gameState = GameState.MainMenu;
+                }
             }
-
+            previousKeyboardState = curKeyboard;
             base.Update(gameTime);
         }
 
@@ -102,7 +128,7 @@ namespace HolySplit
             }
 
             spriteBatch.End();
-            
+
             base.Draw(gameTime);
         }
     }
