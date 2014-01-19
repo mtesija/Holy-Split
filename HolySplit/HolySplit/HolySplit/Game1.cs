@@ -33,6 +33,7 @@ namespace HolySplit
         SoundEffect destroy, split, shoot;
 
         private Texture2D mainMenu;
+        private Texture2D scoreScreen;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -74,6 +75,7 @@ namespace HolySplit
             destroy = Content.Load<SoundEffect>("sounds/explosion");
             split = Content.Load<SoundEffect>("sounds/hit");
             shoot = Content.Load<SoundEffect>("sounds/shoot");
+            scoreScreen = Content.Load<Texture2D>("images/scorescreen");
         }
 
         protected override void Update(GameTime gameTime)
@@ -141,7 +143,8 @@ namespace HolySplit
             }
             else if (gameState == GameState.ScoreScreen)
             {
-                spriteBatch.DrawString(smallFont, scores, new Vector2(0, 0), Color.Black);
+                spriteBatch.Draw(scoreScreen, new Vector2(0, 0), Color.White );
+                spriteBatch.DrawString(smallFont, scores, new Vector2(0, 0), Color.White);
                 spriteBatch.DrawString(largeFont, "HIGH SCORE: " + highScore.ToString(), new Vector2(0, 400), Color.Red);
             }
 
