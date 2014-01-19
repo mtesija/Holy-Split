@@ -39,12 +39,14 @@ namespace HolySplit
         public Score score;
         public DateTime startTime;
         private Timer speedTimer;
+        private Timer grayTimer;
 
         SoundEffect destroy, split, shoot;
 
         public Map(ref SoundEffect destroy, ref SoundEffect shoot, ref SoundEffect split)
         {
             this.speedTimer = new Timer(15);
+            this.grayTimer = new Timer(20);
             this.destroy = destroy;
             this.shoot = shoot;
             this.split = split;
@@ -139,7 +141,32 @@ namespace HolySplit
             {
                 foreach (Blob b in blobs)
                 {
-                    b.speed += .25f;
+                    b.speed += .15f;
+                }
+            }
+            if (grayTimer.CheckTimer())
+            {
+                if (player.location.X < HolySplitGame.SCREEN_WIDTH / 2)
+                {
+                    if (player.location.Y < HolySplitGame.SCREEN_HEIGHT / 2)
+                    {
+                        blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 3 / 4, HolySplitGame.SCREEN_HEIGHT * 3 / 4), Color.Gray, 1.5f));
+                    }
+                    else
+                    {
+                        blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 3 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 4), Color.Gray, 1.5f));
+                    }
+                }
+                else
+                {
+                    if (player.location.Y < HolySplitGame.SCREEN_HEIGHT / 2)
+                    {
+                        blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 1 / 4, HolySplitGame.SCREEN_HEIGHT * 3 / 4), Color.Gray, 1.5f));
+                    }
+                    else
+                    {
+                        blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 1 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 4), Color.Gray, 1.5f));
+                    }
                 }
             }
             if (blobs.Count > score.mostEnemiesAlive)
