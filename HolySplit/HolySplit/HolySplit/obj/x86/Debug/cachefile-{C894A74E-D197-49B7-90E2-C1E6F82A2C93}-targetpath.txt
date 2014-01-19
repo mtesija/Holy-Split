@@ -1,9 +1,0 @@
-Content\images\blob.xnb
-Content\images\bullet.xnb
-Content\images\player.xnb
-Content\images\tiles.xnb
-Content\fonts\smallfont.xnb
-Content\fonts\largefont.xnb
-Content\images\gun.xnb
-Content\images\select.xnb
-Content\images\aim.xnb
