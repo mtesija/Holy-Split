@@ -91,18 +91,18 @@ namespace HolySplit
             }
             else if (color == PURPLE)
             {
-                blobs.Add(new Blob(this.location, RED, this.speed - (float)Map.random.NextDouble() * 1.1f));
-                blobs.Add(new Blob(this.location, BLUE, this.speed - (float)Map.random.NextDouble() * 1.5f));
+                blobs.Add(new Blob(this.location, RED, this.speed - (float)Map.random.NextDouble() * .3f));
+                blobs.Add(new Blob(this.location, BLUE, this.speed - (float)Map.random.NextDouble() * .5f));
             }
             else if (color == GREEN)
             {
-                blobs.Add(new Blob(this.location, BLUE, this.speed - (float)Map.random.NextDouble() * 1.5f));
-                blobs.Add(new Blob(this.location, YELLOW, this.speed - (float)Map.random.NextDouble() * 1.3f));
+                blobs.Add(new Blob(this.location, BLUE, this.speed - (float)Map.random.NextDouble() * .5f));
+                blobs.Add(new Blob(this.location, YELLOW, this.speed - (float)Map.random.NextDouble() * .4f));
             }
             else if (color == ORANGE)
             {
-                blobs.Add(new Blob(this.location, YELLOW, this.speed - (float)Map.random.NextDouble() * 1.3f));
-                blobs.Add(new Blob(this.location, RED, this.speed - (float)Map.random.NextDouble() * 1.1f));
+                blobs.Add(new Blob(this.location, YELLOW, this.speed - (float)Map.random.NextDouble() * .4f));
+                blobs.Add(new Blob(this.location, RED, this.speed - (float)Map.random.NextDouble() * .3f));
             }
             else if (color == REDORANGE)
             {
@@ -144,9 +144,13 @@ namespace HolySplit
             {
                 if (b.color == RED)
                 {
-                    if (Color.Equals(RED, this.color) || Color.Equals(ORANGE, this.color) 
+                    if (Color.Equals(RED, this.color) || Color.Equals(ORANGE, this.color)
                         || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
                         this.Kill(ref blobs);
+                    else if (Color.Equals(BLUE, this.color))
+                        blobs.Add(new Blob(this.location, PURPLE, this.speed));
+                    else if (Color.Equals(YELLOW, this.color))
+                        blobs.Add(new Blob(this.location, ORANGE, this.speed));
                     else
                         this.Split(ref blobs);
                 }
@@ -155,6 +159,10 @@ namespace HolySplit
                     if (Color.Equals(BLUE, this.color) || Color.Equals(GREEN, this.color) 
                         || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
                         this.Kill(ref blobs);
+                    else if (Color.Equals(RED, this.color))
+                        blobs.Add(new Blob(this.location, PURPLE, this.speed));
+                    else if (Color.Equals(YELLOW, this.color))
+                        blobs.Add(new Blob(this.location, GREEN, this.speed));
                     else
                         this.Split(ref blobs);
                 }
@@ -163,6 +171,10 @@ namespace HolySplit
                     if (Color.Equals(YELLOW, this.color) || Color.Equals(ORANGE, this.color) 
                         || Color.Equals(GREEN, this.color) || Color.Equals(GRAY, this.color))
                         this.Kill(ref blobs);
+                    else if (Color.Equals(BLUE, this.color))
+                        blobs.Add(new Blob(this.location, GREEN, this.speed));
+                    else if (Color.Equals(RED, this.color))
+                        blobs.Add(new Blob(this.location, ORANGE, this.speed));
                     else
                         this.Split(ref blobs);
                 }
