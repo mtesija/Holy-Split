@@ -75,6 +75,7 @@ namespace HolySplit
             mainMenu = Content.Load<Texture2D>("images/mainmenu");
             instructionScreen = Content.Load<Texture2D>("images/scorescreen");
             scoreScreen = Content.Load<Texture2D>("images/scorescreen");
+            instructionScreen = Content.Load<Texture2D>("images/instructions");
             destroy = Content.Load<SoundEffect>("sounds/explosion");
             split = Content.Load<SoundEffect>("sounds/split4");
             shoot = Content.Load<SoundEffect>("sounds/shoot");
@@ -122,6 +123,7 @@ namespace HolySplit
                 if (curKeyboard.IsKeyDown(Keys.Escape) && previousKeyboardState.IsKeyUp(Keys.Escape))
                 {
                     gameState = GameState.ScoreScreen;
+                    MediaPlayer.Play(scoreSong);
                 }
                 map.Update(gameTime, ref death);
                 if (map.player.destroyThis)
