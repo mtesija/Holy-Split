@@ -1,16 +1,17 @@
 //Today
 [ ] score calculation
 [X] blob player collision / death
-[ ] menu drawing code
+[~] menu drawing code
 [X] wall collision bug
-[ ] weapon switching code
-[ ] aiming code
+[X] weapon switching code
+[~] aiming code
 [ ] shooting
 [ ] check bullets against all blobs
-[ ] add arrow keys for movement
-[ ] blob AI
+[X] add arrow keys for movement
+[~] blob AI
 
 //Tomorrow
 [ ] high score saving and loading
 [ ] Animations
 [ ] Split based on the color blob was shot with
+[ ] Poster
