@@ -30,6 +30,8 @@ namespace HolySplit
         SpriteFont smallFont;
         SpriteFont largeFont;
 
+        private Texture2D mainMenu;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -64,6 +66,7 @@ namespace HolySplit
             view.LoadContent(Content);
             smallFont = Content.Load<SpriteFont>("fonts/smallfont");
             largeFont = Content.Load<SpriteFont>("fonts/largefont");
+            mainMenu = Content.Load<Texture2D>("images/mainmenu");
         }
 
         protected override void Update(GameTime gameTime)
@@ -115,10 +118,7 @@ namespace HolySplit
 
             if (gameState == GameState.MainMenu)
             {
-                spriteBatch.DrawString(largeFont, GAME_TITLE, new Vector2(0, 0), Color.Black);
-                spriteBatch.DrawString(smallFont, HOW_TO_PLAY, new Vector2(0, 70), Color.Black);
-                spriteBatch.DrawString(smallFont, CONTROLS, new Vector2(0, 200), Color.Black);
-                spriteBatch.DrawString(smallFont, CONTINUE, new Vector2(0, 400), Color.Black);
+                spriteBatch.Draw(mainMenu, new Vector2(0, 0), Color.White);
             }
             else if (gameState == GameState.Game)
             {
