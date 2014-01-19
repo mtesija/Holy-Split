@@ -189,12 +189,15 @@ namespace HolySplit
 
         public void DrawScores()
         {
-            DrawStringCentered(mediumFont, "Number of enemies killed: " + map.score.enemiesKilled.ToString(), 150, Color.White);
-            DrawStringCentered(mediumFont, "Time survived: " + map.score.timeSurvived.ToString() + " seconds", 180, Color.White);
-            DrawStringCentered(mediumFont, "Number of enemy splits: " + map.score.numberSplits.ToString(), 210, Color.White);
-            DrawStringCentered(mediumFont, "Max number of living enemies: " + map.score.mostEnemiesAlive.ToString(), 240, Color.White);
-            if(map.score.eradication)
-                DrawStringCentered(mediumFont, "Eradication Bonus!", 270, Color.White);
+            if (map != null)
+            {
+                DrawStringCentered(mediumFont, "Number of enemies killed: " + map.score.enemiesKilled.ToString(), 150, Color.White);
+                DrawStringCentered(mediumFont, "Time survived: " + map.score.timeSurvived.ToString() + " seconds", 180, Color.White);
+                DrawStringCentered(mediumFont, "Number of enemy splits: " + map.score.numberSplits.ToString(), 210, Color.White);
+                DrawStringCentered(mediumFont, "Max number of living enemies: " + map.score.mostEnemiesAlive.ToString(), 240, Color.White);
+                if (map.score.eradication)
+                    DrawStringCentered(mediumFont, "Eradication Bonus!", 270, Color.White);
+            }
         }
     }
 }
