@@ -1,24 +1,24 @@
 //Today
 [X] score calculation
 [X] blob player collision / death
-[~S] menu drawing code
+[X] menu drawing code
 [X] wall collision bug
 [X] weapon switching code
 [X] aiming code
 [X] shooting
 [X] check bullets against all blobs
 [X] add arrow keys for movement
-[~M] blob AI
 
 //Tomorrow
+[~M] blob AI
 [X] high score saving and loading
 [A] Animations
 [X] Split based on the color blob was shot with
-[S] Poster
+[~S] Poster
 [S] Hold tab to see the rules
 [A] rules page
-[A] Sounds
+[~A] Sounds
 [N] Music
 [M] Colors
 [A] Menu pulse
-[A] Outline crosshair with black
+[X] Outline crosshair with black
