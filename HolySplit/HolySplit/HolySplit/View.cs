@@ -24,12 +24,16 @@ namespace HolySplit
         private SpriteFont largeFont;
         Rectangle sourceRect, gunLocation, selectLocation;
         Vector2 fontLocation;
+        Timer animationTimer;
+        int animationFrame;
 
         public View()
         {
             sourceRect = new Rectangle(0, 0, SOURCE_SIZE, SOURCE_SIZE);
             gunLocation = new Rectangle((HolySplitGame.SCREEN_WIDTH * 3 / 4) - (GUN_SIZE / 2) - GUN_SIZE, HolySplitGame.SCREEN_HEIGHT - GUN_SIZE / 2, GUN_SIZE, GUN_SIZE);
             fontLocation = new Vector2(FONT_LOCATION, HolySplitGame.SCREEN_HEIGHT - FONT_LOCATION);
+            animationTimer = new Timer(0.3f);
+            animationFrame = 0;
         }
 
         public void LoadContent(ContentManager content)
@@ -46,6 +50,13 @@ namespace HolySplit
 
         public void Draw(SpriteBatch spriteBatch, Map map)
         {
+            if (animationTimer.CheckTimer())
+            {
+                animationFrame++;
+                if (animationFrame > 3)
+                    animationFrame = 0;
+            }
+
             for(int i = 0; i < Map.MAP_WIDTH; ++i)
                 for(int j = 0; j < Map.MAP_HEIGHT; ++j)
                 {
@@ -59,7 +70,7 @@ namespace HolySplit
             }
 
             foreach (Blob b in map.blobs)
-                spriteBatch.Draw(blob, b.hitbox, b.color);
+                spriteBatch.Draw(blob, b.hitbox,new Rectangle(animationFrame * SOURCE_SIZE, 0, SOURCE_SIZE, SOURCE_SIZE), b.color);
 
             foreach (Bullet b in map.bullets)
                 spriteBatch.Draw(bullet, b.hitbox, b.color);
