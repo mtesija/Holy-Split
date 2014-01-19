@@ -203,8 +203,8 @@ namespace HolySplit
 
             if (positiveTimer.CheckTimer())
             {
-                this.positive = Map.random.Next(0, 2);
-                positiveTimer.resetTimer(Map.random.Next(5, 7));
+                this.positive = Map.random.Next(-30, 30);
+                positiveTimer.resetTimer(Map.random.Next(3, 5));
             }
 
             if (color == GRAY)
@@ -213,30 +213,30 @@ namespace HolySplit
             }
             else if (color == RED)
             {
-                if (this.positive == 0)
-                    this.direction = Map.random.Next(-45, -15);
+                if (this.positive < 0)
+                    this.direction = Map.random.Next(-30, -15);
                 else
-                    this.direction = Map.random.Next(15, 45);
+                    this.direction = Map.random.Next(15, 30);
 
                 this.velocity = player.location - this.location;
                 rotateVec(this.velocity, this.direction);
             }
             else if (color == BLUE)
             {
-                if (this.positive == 0)
-                    this.direction = Map.random.Next(-60, -30);
+                if (this.positive < 0)
+                    this.direction = Map.random.Next(-25, -10);
                 else
-                    this.direction = Map.random.Next(30, 60);
+                    this.direction = Map.random.Next(10, 25);
 
                 this.velocity = player.location - this.location;
                 rotateVec(this.velocity, this.direction);
             }
             else if (color == YELLOW)
             {
-                if (this.positive == 0)
-                    this.direction = Map.random.Next(-90, -45);
+                if (this.positive < 0)
+                    this.direction = Map.random.Next(-40, 25);
                 else
-                    this.direction = Map.random.Next(45, 90);
+                    this.direction = Map.random.Next(25, 40);
 
                 this.velocity = player.location - this.location;
                 rotateVec(this.velocity, this.direction);
@@ -246,7 +246,7 @@ namespace HolySplit
                 if (directionTimer.CheckTimer())
                 {
                     this.direction = Map.random.Next(-180, 180);
-                    directionTimer.resetTimer(Map.random.Next(12, 16));
+                    directionTimer.resetTimer(Map.random.Next(1, 4));
                 }
 
                 this.velocity = new Vector2(1, 0);
@@ -257,7 +257,7 @@ namespace HolySplit
                 if (directionTimer.CheckTimer())
                 {
                     this.direction = Map.random.Next(-180, 180);
-                    directionTimer.resetTimer(Map.random.Next(4, 8));
+                    directionTimer.resetTimer(Map.random.Next(2, 3));
                 }
 
                 this.velocity = new Vector2(1, 0);
@@ -268,7 +268,7 @@ namespace HolySplit
                 if (directionTimer.CheckTimer())
                 {
                     this.direction = Map.random.Next(-180, 180);
-                    directionTimer.resetTimer(Map.random.Next(6, 11));
+                    directionTimer.resetTimer(Map.random.Next(3, 5));
                 }
 
                 this.velocity = new Vector2(1, 0);
@@ -311,26 +311,26 @@ namespace HolySplit
             {
                 this.location.X = 0 + WALL_SIZE;
                 this.direction += 180 + Map.random.Next(-20, 20);
-                directionTimer.resetTimer(6);
+                directionTimer.resetTimer(2);
             }
             else if (location.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE)
             {
                 this.location.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE;
                 this.direction += 180 + Map.random.Next(-20, 20);
-                directionTimer.resetTimer(6);
+                directionTimer.resetTimer(2);
             }
 
             if (location.Y < 0 + WALL_SIZE)
             {
                 this.location.Y = 0 + WALL_SIZE;
                 this.direction += 180 + Map.random.Next(-20, 20);
-                directionTimer.resetTimer(6);
+                directionTimer.resetTimer(2);
             }
             else if (location.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE)
             {
                 this.location.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE;
                 this.direction += 180 + Map.random.Next(-20, 20);
-                directionTimer.resetTimer(6);
+                directionTimer.resetTimer(2);
             }
 
             this.hitbox.X = (int)this.location.X;
