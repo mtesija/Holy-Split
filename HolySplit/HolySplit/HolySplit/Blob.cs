@@ -135,7 +135,7 @@ namespace HolySplit
                 blobs.Add(new Blob(this.location, YELLOW, this.speed));
             }
 
-            destroyThis = true;
+            this.destroyThis = true;
         }
         
         public void BulletCollide(Bullet b, ref List<Blob> blobs)
@@ -264,27 +264,27 @@ namespace HolySplit
             }
             else if (color == REDORANGE)
             {
-
+                this.velocity = player.location - this.location;
             }
             else if (color == REDPURPLE)
             {
-
+                this.velocity = player.location - this.location;
             }
             else if (color == BLUEGREEN)
             {
-
+                this.velocity = player.location - this.location;
             }
             else if (color == BLUEPURPLE)
             {
-
+                this.velocity = player.location - this.location;
             }
             else if (color == YELLOWGREEN)
             {
-
+                this.velocity = player.location - this.location;
             }
             else if (color == YELLOWORANGE)
             {
-
+                this.velocity = player.location - this.location;
             }
 
             if (velocity.X != 0 || velocity.Y != 0)

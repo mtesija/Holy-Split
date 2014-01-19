@@ -14,19 +14,23 @@ namespace HolySplit
 {
     class PhysicsObject
     {
+        //Color
+        public Color GRAY = Color.Gray;
+        //Primary
         public Color RED = Color.Red;
         public Color BLUE = Color.Blue;
         public Color YELLOW = Color.Yellow;
-        public Color PURPLE = Color.Purple;
-        public Color GREEN = Color.Green;
-        public Color ORANGE = Color.Orange;
+        //Secondary
+        public Color PURPLE = Color.DarkViolet;
+        public Color GREEN = Color.ForestGreen;
+        public Color ORANGE = Color.DarkOrange;
+        //Tertiary
         public Color REDORANGE = Color.OrangeRed;
         public Color REDPURPLE = Color.MediumVioletRed;
         public Color BLUEPURPLE = Color.BlueViolet;
         public Color BLUEGREEN = Color.MediumTurquoise;
         public Color YELLOWGREEN = Color.YellowGreen;
         public Color YELLOWORANGE = Color.Gold;
-        public Color GRAY = Color.Gray;
 
         public const int CHARACTER_SIZE = 35;
         public const int WALL_SIZE = 35;
