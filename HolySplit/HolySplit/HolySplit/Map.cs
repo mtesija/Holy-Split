@@ -152,9 +152,10 @@ namespace HolySplit
             }
             if (player.destroyThis)
             {
+                if(!score.eradication)
+                    death.Play();
                 TimeSpan t = DateTime.Now - startTime;
                 score.timeSurvived = t.Seconds;
-                death.Play();
             }
         }
     }
