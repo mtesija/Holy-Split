@@ -174,7 +174,8 @@ namespace HolySplit
             DrawStringCentered(mediumFont, "Time survived: " + map.score.timeSurvived.ToString() + " seconds", 180, Color.White);
             DrawStringCentered(mediumFont, "Number of enemy splits: " + map.score.numberSplits.ToString(), 210, Color.White);
             DrawStringCentered(mediumFont, "Max number of living enemies: " + map.score.mostEnemiesAlive.ToString(), 240, Color.White);
-            DrawStringCentered(mediumFont, "Eradication bonus (2X score): " + map.score.eradication.ToString(), 270, Color.White);
+            if(map.score.eradication)
+                DrawStringCentered(mediumFont, "Eradication Bonus!", 270, Color.White);
         }
     }
 }
