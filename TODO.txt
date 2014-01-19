@@ -11,7 +11,7 @@
 [~M] blob AI
 
 //Tomorrow
-[A] high score saving and loading
+[X] high score saving and loading
 [A] Animations
 [X] Split based on the color blob was shot with
 [S] Poster
