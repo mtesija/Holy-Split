@@ -18,9 +18,10 @@ namespace HolySplit
         const int DESTINATION_SIZE = 35;
         const int GUN_SIZE = 70;
         const int FONT_LOCATION = 35;
+        const int AIM_SIZE = 25;
 
-        private Texture2D player, blob, tiles, bullet, gun, select;
-        private SpriteFont smallFont;
+        private Texture2D player, blob, tiles, bullet, gun, select, aim;
+        private SpriteFont largeFont;
         Rectangle sourceRect, gunLocation, selectLocation;
         Vector2 fontLocation;
 
@@ -39,7 +40,8 @@ namespace HolySplit
             bullet = content.Load<Texture2D>("images/bullet");
             gun = content.Load<Texture2D>("images/gun");
             select = content.Load<Texture2D>("images/select");
-            smallFont = content.Load<SpriteFont>("fonts/largefont");
+            aim = content.Load<Texture2D>("images/aim");
+            largeFont = content.Load<SpriteFont>("fonts/largefont");
         }
 
         public void Draw(SpriteBatch spriteBatch, Map map)
@@ -57,7 +59,7 @@ namespace HolySplit
             foreach (Bullet b in map.bullets)
                 spriteBatch.Draw(bullet, b.hitbox, b.color);
 
-            spriteBatch.Draw(bullet, map.player.aim, map.player.color);
+            spriteBatch.Draw(aim, new Rectangle((int)map.player.aim.X, (int)map.player.aim.Y, AIM_SIZE, AIM_SIZE), map.player.color);
             spriteBatch.Draw(player, map.player.hitbox, map.player.color);
 
             spriteBatch.Draw(gun, gunLocation, map.player.RED);
@@ -69,7 +71,7 @@ namespace HolySplit
 
             selectLocation = new Rectangle(gunLocation.X + (map.player.selectedWeapon * GUN_SIZE), gunLocation.Y, GUN_SIZE, GUN_SIZE);
             spriteBatch.Draw(select, selectLocation, Color.OrangeRed);
-            spriteBatch.DrawString(smallFont, "Score: " + map.score.ToString(), fontLocation, Color.Orange);
+            spriteBatch.DrawString(largeFont, "Score: " + map.score.ToString(), fontLocation, Color.Orange);
         }
     }
 }

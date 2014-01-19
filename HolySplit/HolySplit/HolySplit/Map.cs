@@ -17,6 +17,15 @@ namespace HolySplit
         public int tileType; //0 for wall, 1 for empty
     }
 
+    struct Score
+    {
+        public int timeSurvived;
+        public int enemiesKilled;
+        public int mostEnemiesAlive;
+        public int numberBadSplits;
+        public bool eradication;
+    }
+
     class Map
     {
         public const int MAP_WIDTH = 20;
@@ -27,7 +36,8 @@ namespace HolySplit
         public List<Blob> blobs, newBlobs;
         public List<Bullet> bullets;
         public static Random random;
-        public int score;
+        public Score score;
+        public DateTime startTime;
 
         public Map()
         {
@@ -47,6 +57,15 @@ namespace HolySplit
             newBlobs = new List<Blob>();
             bullets = new List<Bullet>();
             random = new Random();
+
+            score = new Score();
+            score.enemiesKilled = 0;
+            score.eradication = false;
+            score.mostEnemiesAlive = 1;
+            score.timeSurvived = 0;
+            score.numberBadSplits = 0;
+
+            startTime = DateTime.Now;
 
             blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT / 5), Color.Gray, .7f + (float)random.NextDouble() * .6f));
             //blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 3, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, .7f + (float)random.NextDouble() * .6f));
@@ -99,7 +118,10 @@ namespace HolySplit
                 }
 
             if (blobs.Count == 0)
+            {
+                score.eradication = true;
                 player.destroyThis = true;
+            }
         }
     }
 }

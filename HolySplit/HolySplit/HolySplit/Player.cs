@@ -77,23 +77,18 @@ namespace HolySplit
             //Aiming
             MouseState mouse = new MouseState();
             mouse = Mouse.GetState();
-            Vector2 mouseDelta = new Vector2(mouse.X - (HolySplitGame.SCREEN_WIDTH / 2), mouse.Y - (HolySplitGame.SCREEN_HEIGHT / 2));
-            if (mouseDelta.Length() > 20)
-            {
-                    mouseDelta.Normalize();
-                    mouseDelta *= 20;
-                    Mouse.SetPosition((int)mouseDelta.X + (HolySplitGame.SCREEN_WIDTH / 2), (int)mouseDelta.Y + (HolySplitGame.SCREEN_HEIGHT / 2));
-            }
-            mouseDelta.Normalize();
-            if (mouseDelta.Length() == 1.0f)
-                aim = mouseDelta;
-            Mouse.SetPosition(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT / 2);
+            aim.X = mouse.X;
+            aim.Y = mouse.Y;
 
             //Check for mouse click to shoot balls
-            //TODO: add timer
             if (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
             {
-                bullets.Add(new Bullet(this.location, aim, this.color));
+                Vector2 bulletVelocity = aim - location;
+                if(bulletVelocity.X != 0 || bulletVelocity.Y != 0)
+                {
+                    bulletVelocity.Normalize();
+                    bullets.Add(new Bullet(this.location, bulletVelocity, this.color));
+                }
             }
             previousMouse = mouse;
 
