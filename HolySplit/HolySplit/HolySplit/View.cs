@@ -17,7 +17,7 @@ namespace HolySplit
         const int SOURCE_SIZE = 100;
         const int DESTINATION_SIZE = 35;
         const int GUN_SIZE = 70;
-        const int FONT_LOCATION = 35;
+        const int FONT_LOCATION = 40;
         const int AIM_SIZE = 25;
 
         private Texture2D player, blob, tiles, bullet, gun, select, aim;
@@ -29,7 +29,7 @@ namespace HolySplit
         {
             sourceRect = new Rectangle(0, 0, SOURCE_SIZE, SOURCE_SIZE);
             gunLocation = new Rectangle((HolySplitGame.SCREEN_WIDTH * 3 / 4) - (GUN_SIZE / 2) - GUN_SIZE, HolySplitGame.SCREEN_HEIGHT - GUN_SIZE / 2, GUN_SIZE, GUN_SIZE);
-            fontLocation = new Vector2(30, HolySplitGame.SCREEN_HEIGHT - FONT_LOCATION);
+            fontLocation = new Vector2(FONT_LOCATION, HolySplitGame.SCREEN_HEIGHT - FONT_LOCATION);
         }
 
         public void LoadContent(ContentManager content)
@@ -52,6 +52,11 @@ namespace HolySplit
                     sourceRect.X = map.tiles[i, j].tileType * SOURCE_SIZE;
                     spriteBatch.Draw(tiles, new Rectangle(i * DESTINATION_SIZE, j * DESTINATION_SIZE, DESTINATION_SIZE, DESTINATION_SIZE), sourceRect, Color.White);
                 }
+            sourceRect.X = 1 * SOURCE_SIZE;
+            for (int i = 0; i < Map.MAP_WIDTH; ++i)
+            {
+                spriteBatch.Draw(tiles, new Rectangle(i * DESTINATION_SIZE, HolySplitGame.SCREEN_HEIGHT, DESTINATION_SIZE, DESTINATION_SIZE), sourceRect, Color.White);
+            }
 
             foreach (Blob b in map.blobs)
                 spriteBatch.Draw(blob, b.hitbox, b.color);
@@ -62,16 +67,21 @@ namespace HolySplit
             spriteBatch.Draw(aim, new Rectangle((int)map.player.aim.X, (int)map.player.aim.Y, AIM_SIZE, AIM_SIZE), map.player.color);
             spriteBatch.Draw(player, map.player.hitbox, map.player.color);
 
+            spriteBatch.Draw(select, gunLocation, Color.DarkGray);
             spriteBatch.Draw(gun, gunLocation, map.player.RED);
             gunLocation.X += GUN_SIZE;
+            spriteBatch.Draw(select, gunLocation, Color.DarkGray);
             spriteBatch.Draw(gun, gunLocation, map.player.YELLOW);
             gunLocation.X += GUN_SIZE;
+            spriteBatch.Draw(select, gunLocation, Color.DarkGray);
             spriteBatch.Draw(gun, gunLocation, map.player.BLUE);
             gunLocation.X -= (GUN_SIZE * 2);
 
             selectLocation = new Rectangle(gunLocation.X + (map.player.selectedWeapon * GUN_SIZE), gunLocation.Y, GUN_SIZE, GUN_SIZE);
-            spriteBatch.Draw(select, selectLocation, Color.OrangeRed);
-            spriteBatch.DrawString(largeFont, "Score: " + map.score.ToString(), fontLocation, Color.Orange);
+            spriteBatch.Draw(select, selectLocation, Color.White);
+            spriteBatch.Draw(gun, selectLocation, map.player.color);
+
+            spriteBatch.DrawString(largeFont, "Kills: " + map.score.enemiesKilled.ToString(), fontLocation, Color.White);
         }
     }
 }
