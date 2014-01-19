@@ -38,11 +38,13 @@ namespace HolySplit
         public static Random random;
         public Score score;
         public DateTime startTime;
+        private Timer speedTimer;
 
         SoundEffect destroy, split, shoot;
 
         public Map(ref SoundEffect destroy, ref SoundEffect shoot, ref SoundEffect split)
         {
+            this.speedTimer = new Timer(15);
             this.destroy = destroy;
             this.shoot = shoot;
             this.split = split;
@@ -134,7 +136,13 @@ namespace HolySplit
                 {
                     blobs[i].Collide(blobs[j]);
                 }
-
+            if (speedTimer.CheckTimer())
+            {
+                foreach (Blob b in blobs)
+                {
+                    b.speed += .1f;
+                }
+            }
             if (blobs.Count > score.mostEnemiesAlive)
                 score.mostEnemiesAlive = blobs.Count;
             if (blobs.Count == 0)
