@@ -10,13 +10,12 @@
 [X] add arrow keys for movement
 
 //Tomorrow
-[~A] Animations
-[S] Hold tab to see the rules
-[A] rules page
+[~A] rules page
 [!A] Menu pulse
-[~S] Make score screen better
-[!A] Hitbox changes
 
+[X] Hold tab to see the rules
+[X] Make score screen better
+[X] Animations
 [X] Get poster printed
 [X] high score saving and loading
 [X] Split based on the color blob was shot with
