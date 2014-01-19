@@ -155,7 +155,7 @@ namespace HolySplit
                 if(!score.eradication)
                     death.Play();
                 TimeSpan t = DateTime.Now - startTime;
-                score.timeSurvived = t.Seconds;
+                score.timeSurvived = t.Seconds + (t.Minutes * 60);
             }
         }
     }
