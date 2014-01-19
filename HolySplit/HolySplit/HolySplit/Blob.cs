@@ -85,24 +85,24 @@ namespace HolySplit
                 //blobs.Add(new Blob(this.location, BLUEPURPLE, this.speed));
                 //blobs.Add(new Blob(this.location, YELLOWGREEN, this.speed));
                 //blobs.Add(new Blob(this.location, YELLOWORANGE, this.speed));
-                blobs.Add(new Blob(this.location, PURPLE, this.speed + (float)Map.random.NextDouble() * .3f));
-                blobs.Add(new Blob(this.location, GREEN, this.speed + (float)Map.random.NextDouble() * .5f));
-                blobs.Add(new Blob(this.location, ORANGE, this.speed + (float)Map.random.NextDouble() * .6f));
+                blobs.Add(new Blob(this.location, PURPLE, this.speed));
+                blobs.Add(new Blob(this.location, GREEN, this.speed));
+                blobs.Add(new Blob(this.location, ORANGE, this.speed));
             }
             else if (color == PURPLE)
             {
-                blobs.Add(new Blob(this.location, RED, this.speed - (float)Map.random.NextDouble() * .3f));
-                blobs.Add(new Blob(this.location, BLUE, this.speed - (float)Map.random.NextDouble() * .5f));
+                blobs.Add(new Blob(this.location, RED, this.speed));
+                blobs.Add(new Blob(this.location, BLUE, this.speed));
             }
             else if (color == GREEN)
             {
-                blobs.Add(new Blob(this.location, BLUE, this.speed - (float)Map.random.NextDouble() * .5f));
-                blobs.Add(new Blob(this.location, YELLOW, this.speed - (float)Map.random.NextDouble() * .4f));
+                blobs.Add(new Blob(this.location, BLUE, this.speed));
+                blobs.Add(new Blob(this.location, YELLOW, this.speed));
             }
             else if (color == ORANGE)
             {
-                blobs.Add(new Blob(this.location, YELLOW, this.speed - (float)Map.random.NextDouble() * .4f));
-                blobs.Add(new Blob(this.location, RED, this.speed - (float)Map.random.NextDouble() * .3f));
+                blobs.Add(new Blob(this.location, YELLOW, this.speed));
+                blobs.Add(new Blob(this.location, RED, this.speed));
             }
             else if (color == REDORANGE)
             {
