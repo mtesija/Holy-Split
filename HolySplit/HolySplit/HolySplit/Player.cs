@@ -132,6 +132,43 @@ namespace HolySplit
                 }
             }
 
+            if (mouse.ScrollWheelValue > previousMouse.ScrollWheelValue)
+            {
+                if (selectedWeapon == 0)
+                {
+                    this.color = YELLOW;
+                    selectedWeapon = 1;
+                }
+                else if (selectedWeapon == 1)
+                {
+                    this.color = BLUE;
+                    selectedWeapon = 2;
+                }
+                else if (selectedWeapon == 2)
+                {
+                    this.color = RED;
+                    selectedWeapon = 0;
+                }
+            }
+            else if (mouse.ScrollWheelValue < previousMouse.ScrollWheelValue)
+            {
+                if (selectedWeapon == 0)
+                {
+                    this.color = BLUE;
+                    selectedWeapon = 2;
+                }
+                else if (selectedWeapon == 1)
+                {
+                    this.color = RED;
+                    selectedWeapon = 0;
+                }
+                else if (selectedWeapon == 2)
+                {
+                    this.color = YELLOW;
+                    selectedWeapon = 1;
+                }
+            }
+
             previousMouse = mouse;
 
             if(velocity.X != 0 || velocity.Y != 0)
