@@ -150,7 +150,7 @@ namespace HolySplit
                     else
                         this.Split(ref blobs);
                 }
-                else if (this.color == BLUE)
+                else if (b.color == BLUE)
                 {
                     if (Color.Equals(BLUE, this.color) || Color.Equals(GREEN, this.color) 
                         || Color.Equals(PURPLE, this.color) || Color.Equals(GRAY, this.color))
@@ -158,7 +158,7 @@ namespace HolySplit
                     else
                         this.Split(ref blobs);
                 }
-                else if (this.color == YELLOW)
+                else if (b.color == YELLOW)
                 {
                     if (Color.Equals(YELLOW, this.color) || Color.Equals(ORANGE, this.color) 
                         || Color.Equals(GREEN, this.color) || Color.Equals(GRAY, this.color))

@@ -90,8 +90,10 @@ namespace HolySplit
             Mouse.SetPosition(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT / 2);
 
             //Check for mouse click to shoot balls
+            //TODO: add timer
             if (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
             {
+                bullets.Add(new Bullet(this.location, aim, this.color));
             }
             previousMouse = mouse;
 

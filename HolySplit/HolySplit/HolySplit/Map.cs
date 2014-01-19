@@ -49,10 +49,10 @@ namespace HolySplit
             random = new Random();
 
             blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 2, HolySplitGame.SCREEN_HEIGHT / 5), Color.Gray, .7f + (float)random.NextDouble() * .6f));
-            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 3, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, .7f + (float)random.NextDouble() * .6f));
-            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 2 / 3, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, .7f + (float)random.NextDouble() * .6f));
-            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 3 / 4, HolySplitGame.SCREEN_HEIGHT / 3), Color.Gray, .7f + (float)random.NextDouble() * .6f));
-            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 4, HolySplitGame.SCREEN_HEIGHT / 3), Color.Gray, .7f + (float)random.NextDouble() * .6f));
+            //blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 3, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, .7f + (float)random.NextDouble() * .6f));
+            //blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 2 / 3, HolySplitGame.SCREEN_HEIGHT / 4), Color.Gray, .7f + (float)random.NextDouble() * .6f));
+            //blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 3 / 4, HolySplitGame.SCREEN_HEIGHT / 3), Color.Gray, .7f + (float)random.NextDouble() * .6f));
+            //blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 4, HolySplitGame.SCREEN_HEIGHT / 3), Color.Gray, .7f + (float)random.NextDouble() * .6f));
             //for (int i = 0; i < 15; ++i)//TESTCODE
             //{
             //    blobs.Add( new Blob(new Vector2(random.Next(0, HolySplitGame.SCREEN_WIDTH - 50), random.Next(0, HolySplitGame.SCREEN_HEIGHT - 50)), Color.Gray, 1));
@@ -67,11 +67,20 @@ namespace HolySplit
         public void Update(GameTime gameTime)
         {
             player.Update(gameTime, ref bullets);
+            foreach (Bullet b in bullets)
+                b.Update(gameTime);
             foreach (Blob b in blobs)
             {
                 b.Update(gameTime, ref player, ref newBlobs);
                 for (int i = 0; i < bullets.Count; ++i)
+                {
                     b.BulletCollide(bullets[i], ref newBlobs);
+                    if (bullets[i].destroyThis)
+                    {
+                        bullets.RemoveAt(i);
+                        --i;
+                    }
+                }
                 player.Collide(b);
             }
             foreach (Blob b in newBlobs)

@@ -14,9 +14,16 @@ namespace HolySplit
 {
     class Bullet : PhysicsObject
     {
-        public Bullet(Vector2 location)
+        public Bullet(Vector2 location, Vector2 velocity, Color color)
         {
             speed = BULLET_SPEED;
+
+            this.location = location;
+            this.velocity = velocity * speed;
+            this.color = color;
+
+            hitbox = new Rectangle((int)location.X, (int)location.Y, BULLET_SIZE, BULLET_SIZE);
+
             destroyThis = false;
         }
 
