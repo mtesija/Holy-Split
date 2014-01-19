@@ -25,6 +25,7 @@ namespace HolySplit
         SpriteFont largeFont;
 
         SoundEffect destroy, split, shoot, death;
+        Song menuSong, gameSong, scoreSong;
 
         private Texture2D mainMenu;
         private Texture2D scoreScreen;
@@ -56,6 +57,7 @@ namespace HolySplit
             gameState = GameState.MainMenu;
 
             SoundEffect.MasterVolume = 0.5f;
+            MediaPlayer.IsRepeating = true;
         }
 
         protected override void LoadContent()
@@ -71,6 +73,10 @@ namespace HolySplit
             shoot = Content.Load<SoundEffect>("sounds/shoot");
             death = Content.Load<SoundEffect>("sounds/death");
             scoreScreen = Content.Load<Texture2D>("images/scorescreen");
+            menuSong = Content.Load<Song>("music/thesplittening");
+            gameSong = Content.Load<Song>("music/splittington");
+            scoreSong = Content.Load<Song>("music/supersplitter");
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -81,12 +87,14 @@ namespace HolySplit
             {
                 if (curKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
                 {
+                    MediaPlayer.Play(gameSong);
                     map = new Map(ref destroy, ref shoot, ref split);
                     gameState = GameState.Game;
                 }
                 else if (curKeyboard.IsKeyDown(Keys.Back) && previousKeyboardState.IsKeyUp(Keys.Back))
                 {
                     gameState = GameState.ScoreScreen;
+                    MediaPlayer.Play(scoreSong);
                 }
                 else if (curKeyboard.IsKeyDown(Keys.Escape) && previousKeyboardState.IsKeyUp(Keys.Escape))
                 {
@@ -109,12 +117,14 @@ namespace HolySplit
                     {
                         highScore = finalScore;
                     }
+                    MediaPlayer.Play(scoreSong);
                 }
             }
             else if (gameState == GameState.ScoreScreen)
             {
                 if (curKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
                 {
+                    MediaPlayer.Play(menuSong);
                     gameState = GameState.MainMenu;
                 }
             }

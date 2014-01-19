@@ -42,7 +42,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="music\" />
+    <Compile Include="music\splittington.mp3">
+      <Name>splittington</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="music\supersplitter.mp3">
+      <Name>supersplitter</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="music\thesplittening.mp3">
+      <Name>thesplittening</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="images\blob.png">

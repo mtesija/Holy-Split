@@ -14,11 +14,14 @@
 [X] high score saving and loading
 [A] Animations
 [X] Split based on the color blob was shot with
-[~S] Poster
+[X] Poster
+[S] Get poster printed
 [S] Hold tab to see the rules
 [A] rules page
 [X] Sounds
-[N] Music
+[X] Music
+[A] Music in game
 [M] Colors
 [A] Menu pulse
 [X] Outline crosshair with black
+[A or S] Make score screen better
