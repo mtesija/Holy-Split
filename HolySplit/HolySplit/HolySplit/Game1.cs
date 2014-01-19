@@ -26,6 +26,7 @@ namespace HolySplit
         const string CONTINUE = "Press SPACE to continue";
         const string HIGH_SCORE = "HIGH SCORES:";
         string scores;
+        int highScore;
 
         SpriteFont smallFont;
         SpriteFont largeFont;
@@ -97,7 +98,15 @@ namespace HolySplit
                 }
                 map.Update(gameTime);
                 if (map.player.destroyThis)
+                {
                     gameState = GameState.ScoreScreen;
+                    int finalScore = 0;
+                    scores = map.CalculateFinalScore(ref finalScore);
+                    if (finalScore > highScore)
+                    {
+                        highScore = finalScore;
+                    }
+                }
             }
             else if (gameState == GameState.ScoreScreen)
             {
@@ -126,7 +135,8 @@ namespace HolySplit
             }
             else if (gameState == GameState.ScoreScreen)
             {
-                spriteBatch.DrawString(smallFont, map.CalculateFinalScore(), new Vector2(0, 0), Color.Black);
+                spriteBatch.DrawString(smallFont, scores, new Vector2(0, 0), Color.Black);
+                spriteBatch.DrawString(largeFont, "HIGH SCORE: " + highScore.ToString(), new Vector2(0, 400), Color.Red);
             }
 
             spriteBatch.End();

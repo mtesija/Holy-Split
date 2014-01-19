@@ -75,9 +75,9 @@ namespace HolySplit
             //blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH / 4, HolySplitGame.SCREEN_HEIGHT / 3), Color.Gray, .7f + (float)random.NextDouble() * .6f));
         }
 
-        public string CalculateFinalScore()
+        public string CalculateFinalScore(ref int finalScore)
         {
-            int finalScore = (score.enemiesKilled * 100) - (score.numberSplits) + (score.mostEnemiesAlive * 10) + (score.timeSurvived * 100);
+            finalScore = (score.enemiesKilled * 100) - (score.numberSplits) + (score.mostEnemiesAlive * 10) + (score.timeSurvived * 100);
             if (score.eradication)
                 finalScore *= 2;
             return "Number of enemies killed: " + score.enemiesKilled.ToString() + '\n'
