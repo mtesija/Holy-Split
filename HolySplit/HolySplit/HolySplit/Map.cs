@@ -97,6 +97,9 @@ namespace HolySplit
                 {
                     blobs[i].Collide(blobs[j]);
                 }
+
+            if (blobs.Count == 0)
+                player.destroyThis = true;
         }
     }
 }
