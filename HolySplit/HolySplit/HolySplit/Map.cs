@@ -22,7 +22,7 @@ namespace HolySplit
         public int timeSurvived;
         public int enemiesKilled;
         public int mostEnemiesAlive;
-        public int numberBadSplits;
+        public int numberSplits;
         public bool eradication;
     }
 
@@ -63,7 +63,7 @@ namespace HolySplit
             score.eradication = false;
             score.mostEnemiesAlive = 1;
             score.timeSurvived = 0;
-            score.numberBadSplits = 0;
+            score.numberSplits = 0;
 
             startTime = DateTime.Now;
 
@@ -77,7 +77,15 @@ namespace HolySplit
 
         public string CalculateFinalScore()
         {
-            return "";
+            int finalScore = (score.enemiesKilled * 100) - (score.numberSplits) + (score.mostEnemiesAlive * 10) + (score.timeSurvived * 100);
+            if (score.eradication)
+                finalScore *= 2;
+            return "Number of enemies killed: " + score.enemiesKilled.ToString() + '\n'
+                +  "Time survived: " + score.timeSurvived.ToString() + '\n'
+                +  "Number of enemy splits: " + score.numberSplits.ToString() + '\n'
+                +  "Max number of living enemies: " + score.mostEnemiesAlive.ToString() + '\n'
+                +  "Eradication bonus (2X score): " + score.eradication.ToString() + '\n'
+                +  "FINAL SCORE: " + finalScore.ToString();
         }
 
         public void Update(GameTime gameTime)
@@ -100,13 +108,17 @@ namespace HolySplit
                 player.Collide(b);
             }
             foreach (Blob b in newBlobs)
+            {
+                score.numberSplits++;
                 blobs.Add(b);
+            }
             newBlobs.Clear();
             for (int i = 0; i < blobs.Count; ++i)
                 if (blobs[i].destroyThis)
                 {
                     blobs.RemoveAt(i);
                     --i;
+                    score.enemiesKilled++;
                 }
             for(int i = blobs.Count - 1; i >= 0; --i)
                 for (int j = 0; j < i; ++j)
@@ -114,6 +126,8 @@ namespace HolySplit
                     blobs[i].Collide(blobs[j]);
                 }
 
+            if (blobs.Count > score.mostEnemiesAlive)
+                score.mostEnemiesAlive = blobs.Count;
             if (blobs.Count == 0)
             {
                 score.eradication = true;

@@ -126,6 +126,7 @@ namespace HolySplit
             }
             else if (gameState == GameState.ScoreScreen)
             {
+                spriteBatch.DrawString(smallFont, map.CalculateFinalScore(), new Vector2(0, 0), Color.Black);
             }
 
             spriteBatch.End();
