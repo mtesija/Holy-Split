@@ -94,7 +94,7 @@ namespace HolySplit
                 +  "FINAL SCORE: " + finalScore.ToString();
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, ref SoundEffect death)
         {
             player.Update(gameTime, ref bullets, ref shoot);
             foreach (Bullet b in bullets)
@@ -143,6 +143,7 @@ namespace HolySplit
             {
                 TimeSpan t = DateTime.Now - startTime;
                 score.timeSurvived = t.Seconds;
+                death.Play();
             }
         }
     }

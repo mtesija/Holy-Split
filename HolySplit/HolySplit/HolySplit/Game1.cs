@@ -18,19 +18,13 @@ namespace HolySplit
         public const int SCREEN_WIDTH = 700;
         public const int SCREEN_HEIGHT = 700;
 
-        const string GAME_TITLE = "Holy Split!";
-        const string RULES_TAB = "Hold TAB to view the serperation rules";
-        const string CONTROLS = "WASD or Arrow Keys - Movement\nMouse - Aim\nLeft Click - Shoot\n1,2,3 or Scroll Wheel - Switch Weapon";
-        const string HOW_TO_PLAY = "    You are equipped with the finest Ultratech(tm) Laser with three stellar blaster settings.\nThe evil Queen Blobulon is invading your planet with his ugly minions.\nHer minions separate when shot unless you match your blaster color setting to the color of the blob.\nShooting a blob with the wrong color setting will cause them to seperate further (note there are more blob colors than blaster settings so you will have to split them).\nIf a blob is left alone for too long it will also seperate.\nYour score increases based on how long you survive and how many blobs you kill so it will be beneficial to shoot some with the wrong color to prolong the game!";
-        const string CONTINUE = "Press SPACE to continue";
-        const string HIGH_SCORE = "HIGH SCORES:";
         string scores;
         int highScore;
 
         SpriteFont smallFont;
         SpriteFont largeFont;
 
-        SoundEffect destroy, split, shoot;
+        SoundEffect destroy, split, shoot, death;
 
         private Texture2D mainMenu;
         private Texture2D scoreScreen;
@@ -73,8 +67,9 @@ namespace HolySplit
             largeFont = Content.Load<SpriteFont>("fonts/largefont");
             mainMenu = Content.Load<Texture2D>("images/mainmenu");
             destroy = Content.Load<SoundEffect>("sounds/explosion");
-            split = Content.Load<SoundEffect>("sounds/hit");
+            split = Content.Load<SoundEffect>("sounds/split4");
             shoot = Content.Load<SoundEffect>("sounds/shoot");
+            death = Content.Load<SoundEffect>("sounds/death");
             scoreScreen = Content.Load<Texture2D>("images/scorescreen");
         }
 
@@ -104,7 +99,7 @@ namespace HolySplit
                 {
                     gameState = GameState.ScoreScreen;
                 }
-                map.Update(gameTime);
+                map.Update(gameTime, ref death);
                 if (map.player.destroyThis)
                 {
                     gameState = GameState.ScoreScreen;

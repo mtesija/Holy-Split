@@ -17,7 +17,7 @@
 [~S] Poster
 [S] Hold tab to see the rules
 [A] rules page
-[~A] Sounds
+[X] Sounds
 [N] Music
 [M] Colors
 [A] Menu pulse
