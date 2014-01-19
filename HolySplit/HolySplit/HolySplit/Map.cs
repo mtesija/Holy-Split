@@ -92,12 +92,15 @@ namespace HolySplit
         {
             finalScore = (score.enemiesKilled * 100) - (score.numberSplits * 5) + (score.mostEnemiesAlive * 10) + (score.timeSurvived * 25);
             if (score.eradication)
-                finalScore *= 2;
-            return "Number of enemies killed: " + score.enemiesKilled.ToString() + '\n'
+                finalScore *= 5;
+            string s = "Number of enemies killed: " + score.enemiesKilled.ToString() + '\n'
                 + "Time survived: " + score.timeSurvived.ToString() + " seconds\n"
                 + "Number of enemy splits: " + score.numberSplits.ToString() + '\n'
-                + "Max number of living enemies: " + score.mostEnemiesAlive.ToString() + '\n'
-                + "Eradication bonus (2X score): " + score.eradication.ToString() + '\n';
+                + "Max number of living enemies: " + score.mostEnemiesAlive.ToString() + '\n';
+            if(score.eradication)
+               s += "Eradication bonus!";
+
+            return s;
         }
 
         public void Update(GameTime gameTime, ref SoundEffect death)
