@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -17,8 +18,7 @@ namespace HolySplit
 
         public const int SCREEN_WIDTH = 700;
         public const int SCREEN_HEIGHT = 700;
-
-        string scores;
+        
         int highScore, finalScore;
 
         SpriteFont smallFont, mediumFont, largeFont;
@@ -55,7 +55,6 @@ namespace HolySplit
 
             view = new View();
             gameState = GameState.MainMenu;
-            scores = String.Empty;
 
             SoundEffect.MasterVolume = 0.5f;
             MediaPlayer.IsRepeating = true;
@@ -114,8 +113,7 @@ namespace HolySplit
                 if (map.player.destroyThis)
                 {
                     gameState = GameState.ScoreScreen;
-                    finalScore = 0;
-                    scores = map.CalculateFinalScore(ref finalScore);
+                    finalScore = map.CalculateFinalScore();
                     if (finalScore > highScore)
                     {
                         highScore = finalScore;
@@ -152,14 +150,31 @@ namespace HolySplit
             else if (gameState == GameState.ScoreScreen)
             {
                 spriteBatch.Draw(scoreScreen, new Vector2(0, 0), Color.White );
-                spriteBatch.DrawString(smallFont, scores, new Vector2(0, 0), Color.White);
-                spriteBatch.DrawString(mediumFont, "YOUR SCORE: " + finalScore.ToString(), new Vector2(0, 400), Color.Red);
-                spriteBatch.DrawString(largeFont, "HIGH SCORE: " + highScore.ToString(), new Vector2(0, 500), Color.Red);
+                DrawScores();
+                DrawStringCentered(largeFont, "YOUR SCORE: " + finalScore.ToString(), 375, Color.Red);
+                DrawStringCentered(largeFont, "HIGH SCORE: " + highScore.ToString(), 475, Color.Red);
             }
 
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void DrawStringCentered(SpriteFont spriteFont, String text, Single y, Color color)
+        {
+            Vector2 textBounds = spriteFont.MeasureString(text);
+            Single centerX = spriteBatch.GraphicsDevice.PresentationParameters.BackBufferWidth * 0.5f - textBounds.X * 0.5f;
+
+            spriteBatch.DrawString(spriteFont, text, new Vector2(centerX, y), color);
+        }
+
+        public void DrawScores()
+        {
+            DrawStringCentered(mediumFont, "Number of enemies killed: " + map.score.enemiesKilled.ToString(), 150, Color.White);
+            DrawStringCentered(mediumFont, "Time survived: " + map.score.timeSurvived.ToString() + " seconds", 180, Color.White);
+            DrawStringCentered(mediumFont, "Number of enemy splits: " + map.score.numberSplits.ToString(), 210, Color.White);
+            DrawStringCentered(mediumFont, "Max number of living enemies: " + map.score.mostEnemiesAlive.ToString(), 240, Color.White);
+            DrawStringCentered(mediumFont, "Eradication bonus (2X score): " + map.score.eradication.ToString(), 270, Color.White);
         }
     }
 }
