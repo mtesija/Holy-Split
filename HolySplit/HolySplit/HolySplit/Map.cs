@@ -82,7 +82,7 @@ namespace HolySplit
             blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 1 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 3), Color.DarkViolet, 1.3f));
             blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 2 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 4), Color.ForestGreen, 1.3f));
             blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 3 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 3), Color.DarkOrange, 1.3f));
-            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 1 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 4), Color.OrangeRed, 1.3f));
+            blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 1 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 4), Color.Red, 1.3f));
             blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 2 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 5), Color.DodgerBlue, 1.3f));
             blobs.Add(new Blob(new Vector2(HolySplitGame.SCREEN_WIDTH * 3 / 4, HolySplitGame.SCREEN_HEIGHT * 1 / 4), Color.Gold, 1.3f));
 

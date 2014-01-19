@@ -17,7 +17,7 @@ namespace HolySplit
         //Color
         public Color GRAY = Color.Gray;
         //Primary
-        public Color RED = Color.OrangeRed;
+        public Color RED = Color.Red;
         public Color BLUE = Color.DodgerBlue;
         public Color YELLOW = Color.Gold;
         //Secondary
