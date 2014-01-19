@@ -88,7 +88,7 @@ namespace HolySplit
 
         public string CalculateFinalScore(ref int finalScore)
         {
-            finalScore = (score.enemiesKilled * 100) - (score.numberSplits) + (score.mostEnemiesAlive * 10) + (score.timeSurvived * 100);
+            finalScore = (score.enemiesKilled * 100) - (score.numberSplits * 5) + (score.mostEnemiesAlive * 10) + (score.timeSurvived * 25);
             if (score.eradication)
                 finalScore *= 2;
             return "Number of enemies killed: " + score.enemiesKilled.ToString() + '\n'
@@ -140,7 +140,7 @@ namespace HolySplit
             {
                 foreach (Blob b in blobs)
                 {
-                    b.speed += .1f;
+                    b.speed += .25f;
                 }
             }
             if (blobs.Count > score.mostEnemiesAlive)
