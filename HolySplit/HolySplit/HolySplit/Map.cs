@@ -119,6 +119,11 @@ namespace HolySplit
                 score.eradication = true;
                 player.destroyThis = true;
             }
+            if (player.destroyThis)
+            {
+                TimeSpan t = DateTime.Now - startTime;
+                score.timeSurvived = t.Seconds;
+            }
         }
     }
 }

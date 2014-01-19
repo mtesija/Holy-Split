@@ -79,6 +79,27 @@ namespace HolySplit
             mouse = Mouse.GetState();
             aim.X = mouse.X;
             aim.Y = mouse.Y;
+            if (aim.X < 0 + WALL_SIZE)
+            {
+                aim.X = 0 + WALL_SIZE;
+                Mouse.SetPosition(0 + WALL_SIZE, (int)aim.Y);
+            }
+            else if (aim.X > HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE)
+            {
+                aim.X = HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE;
+                Mouse.SetPosition(HolySplitGame.SCREEN_WIDTH - CHARACTER_SIZE - WALL_SIZE, (int)aim.Y);
+            }
+
+            if (aim.Y < 0 + WALL_SIZE)
+            {
+                aim.Y = 0 + WALL_SIZE;
+                Mouse.SetPosition((int)aim.X, 0 + WALL_SIZE);
+            }
+            else if (aim.Y > HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE)
+            {
+                aim.Y = HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE;
+                Mouse.SetPosition((int)aim.X, HolySplitGame.SCREEN_HEIGHT - CHARACTER_SIZE - WALL_SIZE);
+            }
 
             //Check for mouse click to shoot balls
             if (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)

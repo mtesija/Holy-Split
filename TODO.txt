@@ -18,3 +18,4 @@
 [ ] Hold tab to see the rules
 [ ] Sounds
 [ ] Music
+[ ] Colors
