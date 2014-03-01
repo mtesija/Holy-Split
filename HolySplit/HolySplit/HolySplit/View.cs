@@ -26,6 +26,7 @@ namespace HolySplit
         Vector2 fontLocation;
         Timer animationTimer;
         int animationFrame;
+        private Effect testShader;
 
         public View()
         {
@@ -46,9 +47,10 @@ namespace HolySplit
             select = content.Load<Texture2D>("images/select");
             aim = content.Load<Texture2D>("images/aim");
             largeFont = content.Load<SpriteFont>("fonts/largefont");
+            testShader = content.Load<Effect>("shaders/testshader");
         }
 
-        public void Draw(SpriteBatch spriteBatch, Map map)
+        public void Draw(ref SpriteBatch spriteBatch, Map map)
         {
             if (animationTimer.CheckTimer())
             {
@@ -68,6 +70,8 @@ namespace HolySplit
             {
                 spriteBatch.Draw(tiles, new Rectangle(i * DESTINATION_SIZE, HolySplitGame.SCREEN_HEIGHT, DESTINATION_SIZE, DESTINATION_SIZE), sourceRect, Color.White);
             }
+
+            testShader.CurrentTechnique.Passes[0].Apply();
 
             foreach (Blob b in map.blobs)
                 spriteBatch.Draw(blob, b.hitbox,new Rectangle(animationFrame * SOURCE_SIZE, 0, SOURCE_SIZE, SOURCE_SIZE), b.color);

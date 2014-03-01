@@ -153,7 +153,7 @@ namespace HolySplit
         {
             GraphicsDevice.Clear(Color.WhiteSmoke);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
 
             if (gameState == GameState.MainMenu)
             {
@@ -164,7 +164,7 @@ namespace HolySplit
             }
             else if (gameState == GameState.Game)
             {
-                view.Draw(spriteBatch, map);
+                view.Draw(ref spriteBatch, map);
             }
             else if (gameState == GameState.ScoreScreen)
             {
